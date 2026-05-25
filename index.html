@@ -3,140 +3,153 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Research Survey - Villalobos</title>
+<title>Psychological Pathways to Flourishing</title>
 <style>
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:'Segoe UI',sans-serif;background:#f0f4f8;min-height:100vh;display:flex;align-items:flex-start;justify-content:center;padding:30px 16px}
-  .card{background:#fff;border-radius:16px;box-shadow:0 4px 24px rgba(0,0,0,0.08);max-width:660px;width:100%;overflow:hidden}
-  .header{background:linear-gradient(135deg,#2563eb,#1d4ed8);color:#fff;padding:24px 32px}
-  .header h1{font-size:1.1rem;font-weight:700;margin-bottom:3px}
-  .header p{font-size:0.8rem;opacity:0.85}
-  .prog-wrap{background:rgba(255,255,255,0.2);border-radius:99px;height:6px;margin-top:14px}
-  .prog-bar{background:#fff;border-radius:99px;height:6px;transition:width 0.4s ease}
-  .prog-lbl{font-size:0.73rem;opacity:0.8;margin-top:5px}
-  .body{padding:28px 32px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',sans-serif;background:#f0f4f8;min-height:100vh;display:flex;align-items:flex-start;justify-content:center;padding:30px 16px}
+.card{background:#fff;border-radius:16px;box-shadow:0 4px 24px rgba(0,0,0,0.08);max-width:700px;width:100%;overflow:hidden}
+.header{background:linear-gradient(135deg,#2563eb,#1d4ed8);color:#fff;padding:24px 32px}
+.header h1{font-size:1.1rem;font-weight:700;margin-bottom:3px}
+.header p{font-size:0.8rem;opacity:0.85}
+.prog-wrap{background:rgba(255,255,255,0.2);border-radius:99px;height:6px;margin-top:14px}
+.prog-bar{background:#fff;border-radius:99px;height:6px;transition:width 0.4s ease}
+.prog-lbl{font-size:0.73rem;opacity:0.8;margin-top:5px}
+.body{padding:28px 32px}
 
-  /* intro/consent */
-  .intro-box{background:#eff6ff;border-left:4px solid #2563eb;border-radius:8px;padding:16px 18px;font-size:0.84rem;color:#1e3a8a;line-height:1.7;margin-bottom:20px}
-  .consent-block{background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:18px 20px;margin-bottom:18px}
-  .consent-block h3{font-size:0.78rem;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:#2563eb;margin-bottom:8px}
-  .consent-block p{font-size:0.84rem;color:#475569;line-height:1.65}
+.intro-box{background:#eff6ff;border-left:4px solid #2563eb;border-radius:8px;padding:16px 18px;font-size:0.84rem;color:#1e3a8a;line-height:1.7;margin-bottom:20px}
+.consent-block{background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;margin-bottom:12px}
+.consent-block h3{font-size:0.74rem;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:#2563eb;margin-bottom:6px}
+.consent-block p{font-size:0.83rem;color:#475569;line-height:1.65}
 
-  .section{display:none}
-  .section.active{display:block;animation:fadeIn 0.3s ease}
-  @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.section{display:none}
+.section.active{display:block;animation:fadeIn 0.3s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 
-  .sec-title{font-size:0.7rem;font-weight:800;text-transform:uppercase;letter-spacing:0.1em;color:#2563eb;margin-bottom:18px;padding-bottom:8px;border-bottom:2px solid #eff6ff}
-  .field{margin-bottom:18px}
-  .field label{display:block;font-size:0.88rem;font-weight:600;color:#1e293b;margin-bottom:8px}
-  .field label .req{color:#ef4444;margin-left:2px}
-  .field input[type=text],.field input[type=number],.field input[type=date],.field select{width:100%;padding:10px 14px;border:2px solid #e2e8f0;border-radius:8px;font-size:0.9rem;color:#1e293b;outline:none;transition:border 0.2s;background:#fff}
-  .field input:focus,.field select:focus{border-color:#2563eb}
+.sec-title{font-size:0.7rem;font-weight:800;text-transform:uppercase;letter-spacing:0.1em;color:#2563eb;margin-bottom:18px;padding-bottom:8px;border-bottom:2px solid #eff6ff}
+.field{margin-bottom:18px}
+.field>label{display:block;font-size:0.88rem;font-weight:600;color:#1e293b;margin-bottom:8px}
+.req{color:#ef4444;margin-left:2px}
+.field input[type=text],.field input[type=number],.field input[type=date]{width:100%;padding:10px 14px;border:2px solid #e2e8f0;border-radius:8px;font-size:0.9rem;color:#1e293b;outline:none;transition:border 0.2s;background:#fff}
+.field input:focus{border-color:#2563eb}
 
-  .radio-group{display:flex;flex-direction:column;gap:8px}
-  .radio-opt{display:flex;align-items:center;gap:10px;padding:10px 14px;border:2px solid #e2e8f0;border-radius:8px;cursor:pointer;transition:border 0.2s,background 0.2s;font-size:0.87rem;color:#1e293b}
-  .radio-opt:hover{background:#eff6ff;border-color:#bfdbfe}
-  .radio-opt input{accent-color:#2563eb;width:16px;height:16px;flex-shrink:0}
-  .radio-opt.selected{border-color:#2563eb;background:#eff6ff}
+.radio-group{display:flex;flex-direction:column;gap:8px}
+.radio-opt{display:flex;align-items:center;gap:10px;padding:10px 14px;border:2px solid #e2e8f0;border-radius:8px;cursor:pointer;transition:border 0.2s,background 0.2s;font-size:0.87rem;color:#1e293b}
+.radio-opt:hover{background:#eff6ff;border-color:#bfdbfe}
+.radio-opt input{accent-color:#2563eb;width:16px;height:16px;flex-shrink:0}
+.radio-opt.selected{border-color:#2563eb;background:#eff6ff}
+.other-wrap{display:none;margin-top:8px}
+.other-wrap input{width:100%;padding:10px 14px;border:2px solid #e2e8f0;border-radius:8px;font-size:0.9rem;outline:none;transition:border 0.2s}
+.other-wrap input:focus{border-color:#2563eb}
 
-  .other-wrap{display:none;margin-top:8px}
-  .other-wrap input{width:100%;padding:10px 14px;border:2px solid #e2e8f0;border-radius:8px;font-size:0.9rem;outline:none;transition:border 0.2s}
-  .other-wrap input:focus{border-color:#2563eb}
+/* Location with city specifier */
+.loc-opt{display:flex;flex-direction:column;gap:6px;padding:10px 14px;border:2px solid #e2e8f0;border-radius:8px;cursor:pointer;transition:border 0.2s,background 0.2s}
+.loc-opt:hover{background:#eff6ff;border-color:#bfdbfe}
+.loc-opt.selected{border-color:#2563eb;background:#eff6ff}
+.loc-row{display:flex;align-items:center;gap:10px;font-size:0.87rem;color:#1e293b}
+.loc-row input[type=radio]{accent-color:#2563eb;width:16px;height:16px;flex-shrink:0}
+.loc-city{display:none;margin-top:6px}
+.loc-city input{width:100%;padding:8px 12px;border:1.5px solid #cbd5e1;border-radius:6px;font-size:0.85rem;outline:none;background:#fff}
+.loc-city input:focus{border-color:#2563eb}
 
-  .err{color:#ef4444;font-size:0.78rem;margin-top:4px;display:none}
+.err{color:#ef4444;font-size:0.78rem;margin-top:5px;display:none}
 
-  /* IPAQ */
-  .ipaq-q{display:none}
-  .q-context{background:#f8fafc;border-radius:8px;padding:12px 14px;font-size:0.82rem;color:#475569;margin-bottom:12px;line-height:1.55}
-  .q-text{font-size:0.96rem;font-weight:600;color:#1e293b;margin-bottom:14px;line-height:1.5}
-  .skip-note{font-size:0.8rem;color:#92400e;background:#fef9c3;padding:7px 12px;border-radius:6px;margin-bottom:10px;display:inline-block}
-  .number-input{display:flex;align-items:center;gap:10px}
-  .number-input input[type=number]{width:90px;padding:10px 12px;border:2px solid #e2e8f0;border-radius:8px;font-size:1rem;color:#1e293b;outline:none;transition:border 0.2s}
-  .number-input input[type=number]:focus{border-color:#2563eb}
-  .number-input span{font-size:0.85rem;color:#94a3b8}
-  .time-inputs{display:flex;gap:12px;flex-wrap:wrap}
-  .time-inputs .number-input{flex:1;min-width:120px}
-  .checkbox-opt{display:flex;align-items:center;gap:10px;margin-top:12px;padding:10px 14px;background:#f8fafc;border-radius:8px;cursor:pointer;border:2px solid transparent;transition:border 0.2s,background 0.2s}
-  .checkbox-opt:hover{background:#eff6ff;border-color:#bfdbfe}
-  .checkbox-opt.disabled{opacity:0.4;pointer-events:none}
-  .checkbox-opt input{accent-color:#2563eb;width:16px;height:16px}
-  .checkbox-opt span{font-size:0.85rem;color:#475569}
+/* IPAQ */
+.ipaq-q{display:none}
+.q-context{background:#f8fafc;border-radius:8px;padding:12px 14px;font-size:0.83rem;color:#475569;margin-bottom:12px;line-height:1.6}
+.q-text{font-size:0.95rem;font-weight:600;color:#1e293b;margin-bottom:14px;line-height:1.5}
+.number-input{display:flex;align-items:center;gap:10px}
+.number-input input[type=number]{width:90px;padding:10px 12px;border:2px solid #e2e8f0;border-radius:8px;font-size:1rem;color:#1e293b;outline:none;transition:border 0.2s}
+.number-input input[type=number]:focus{border-color:#2563eb}
+.number-input span{font-size:0.83rem;color:#64748b}
+.time-inputs{display:flex;gap:14px;flex-wrap:wrap}
+.time-inputs .number-input{flex:1;min-width:140px}
+.checkbox-opt{display:flex;align-items:center;gap:10px;margin-top:12px;padding:10px 14px;background:#f8fafc;border-radius:8px;cursor:pointer;border:2px solid transparent;transition:border 0.2s,background 0.2s}
+.checkbox-opt:hover{background:#eff6ff;border-color:#bfdbfe}
+.checkbox-opt.disabled{opacity:0.38;pointer-events:none}
+.checkbox-opt input{accent-color:#2563eb;width:16px;height:16px}
+.checkbox-opt span{font-size:0.85rem;color:#475569}
+.req-note{font-size:0.78rem;color:#ef4444;margin-top:6px;display:none}
 
-  /* Likert scales */
-  .likert-item{margin-bottom:20px;padding-bottom:18px;border-bottom:1px solid #f1f5f9}
-  .likert-item:last-child{border-bottom:none}
-  .likert-q{font-size:0.88rem;color:#1e293b;margin-bottom:10px;line-height:1.5;font-weight:500}
-  .likert-scale{display:flex;gap:6px;flex-wrap:wrap}
-  .likert-btn{flex:1;min-width:36px;padding:8px 4px;border:2px solid #e2e8f0;border-radius:8px;text-align:center;cursor:pointer;font-size:0.78rem;color:#475569;transition:all 0.15s;background:#fff;user-select:none}
-  .likert-btn:hover{border-color:#93c5fd;background:#eff6ff}
-  .likert-btn.selected{border-color:#2563eb;background:#2563eb;color:#fff;font-weight:700}
-  .likert-labels{display:flex;justify-content:space-between;font-size:0.7rem;color:#94a3b8;margin-top:5px;padding:0 2px}
+/* MBI grid */
+.mbi-table{width:100%;border-collapse:collapse;margin-top:4px}
+.mbi-table th{font-size:0.68rem;font-weight:700;color:#475569;text-align:center;padding:8px 4px;background:#f8fafc;border:1px solid #e2e8f0;vertical-align:bottom;line-height:1.3}
+.mbi-table th.q-col{text-align:left;width:42%}
+.mbi-table td{text-align:center;padding:10px 4px;border:1px solid #f1f5f9;vertical-align:middle}
+.mbi-table td.q-cell{text-align:left;font-size:0.84rem;color:#1e293b;line-height:1.45;padding:10px 10px 10px 8px}
+.mbi-table tr:nth-child(even){background:#fafbfc}
+.mbi-table tr:hover{background:#f0f7ff}
+.mbi-radio{width:18px;height:18px;accent-color:#2563eb;cursor:pointer}
 
-  /* MBI frequency */
-  .mbi-item{margin-bottom:16px;padding-bottom:14px;border-bottom:1px solid #f1f5f9}
-  .mbi-item:last-child{border-bottom:none}
-  .mbi-q{font-size:0.87rem;color:#1e293b;margin-bottom:8px;line-height:1.5;font-weight:500}
-  .mbi-scale{display:flex;gap:4px;flex-wrap:wrap}
-  .mbi-btn{flex:1;min-width:30px;padding:7px 2px;border:2px solid #e2e8f0;border-radius:6px;text-align:center;cursor:pointer;font-size:0.73rem;color:#475569;transition:all 0.15s;background:#fff;user-select:none;line-height:1.3}
-  .mbi-btn:hover{border-color:#93c5fd;background:#eff6ff}
-  .mbi-btn.selected{border-color:#2563eb;background:#2563eb;color:#fff;font-weight:700}
-  .mbi-labels{display:flex;justify-content:space-between;font-size:0.67rem;color:#94a3b8;margin-top:4px}
+/* MSPSS grid */
+.mspss-table{width:100%;border-collapse:collapse;margin-top:4px}
+.mspss-table th{font-size:0.7rem;font-weight:700;color:#475569;text-align:center;padding:10px 6px;background:#f8fafc;border:1px solid #e2e8f0;vertical-align:bottom;line-height:1.35}
+.mspss-table th.q-col{text-align:left;width:38%}
+.mspss-table th span.num{display:block;font-size:1rem;color:#2563eb;margin-bottom:3px}
+.mspss-table td{text-align:center;padding:11px 4px;border:1px solid #f1f5f9;vertical-align:middle}
+.mspss-table td.q-cell{text-align:left;font-size:0.84rem;color:#1e293b;line-height:1.45;padding:11px 10px 11px 8px}
+.mspss-table tr:nth-child(even){background:#fafbfc}
+.mspss-table tr:hover{background:#f0f7ff}
+.mspss-radio{width:18px;height:18px;accent-color:#2563eb;cursor:pointer}
+.scale-legend{display:flex;justify-content:space-between;font-size:0.72rem;color:#64748b;margin-top:8px;padding:0 2px}
 
-  /* nav */
-  .nav{display:flex;gap:12px;margin-top:22px}
-  .btn{padding:11px 24px;border-radius:8px;font-size:0.9rem;font-weight:600;cursor:pointer;border:none;transition:all 0.2s}
-  .btn-primary{background:#2563eb;color:#fff;flex:1}
-  .btn-primary:hover{background:#1d4ed8}
-  .btn-secondary{background:#f1f5f9;color:#475569}
-  .btn-secondary:hover{background:#e2e8f0}
+.nav{display:flex;gap:12px;margin-top:22px}
+.btn{padding:11px 24px;border-radius:8px;font-size:0.9rem;font-weight:600;cursor:pointer;border:none;transition:all 0.2s}
+.btn-primary{background:#2563eb;color:#fff;flex:1}
+.btn-primary:hover{background:#1d4ed8}
+.btn-secondary{background:#f1f5f9;color:#475569}
+.btn-secondary:hover{background:#e2e8f0}
 
-  /* results */
-  .results{display:none;padding:28px 32px}
-  .results h2{font-size:1.2rem;font-weight:700;color:#1e293b;margin-bottom:6px}
-  .results p.sub{font-size:0.85rem;color:#64748b;margin-bottom:20px}
-  .badge{display:inline-block;padding:5px 14px;border-radius:99px;font-size:0.82rem;font-weight:700;margin-left:8px}
-  .badge-low{background:#dcfce7;color:#15803d}
-  .badge-mod{background:#fef9c3;color:#92400e}
-  .badge-high{background:#fee2e2;color:#b91c1c}
-  .result-section{margin-bottom:22px}
-  .result-section h3{font-size:0.72rem;text-transform:uppercase;letter-spacing:0.08em;color:#94a3b8;margin-bottom:10px;font-weight:700}
-  .result-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid #f1f5f9;font-size:0.87rem}
-  .result-row:last-child{border-bottom:none}
-  .result-row .lbl{color:#64748b;flex:1}
-  .result-row .val{font-weight:700;color:#1e293b;text-align:right;max-width:55%}
-  .met-box{background:linear-gradient(135deg,#2563eb,#1d4ed8);color:#fff;border-radius:12px;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
-  .met-box .ml{font-size:0.83rem;opacity:0.85}
-  .met-box .mv{font-size:1.7rem;font-weight:800}
-  .met-box .mu{font-size:0.73rem;opacity:0.75}
-  .level-badge{display:inline-block;padding:6px 18px;border-radius:99px;font-size:0.85rem;font-weight:700;margin-bottom:18px}
-  .level-low{background:#fee2e2;color:#b91c1c}
-  .level-mod{background:#fef9c3;color:#92400e}
-  .level-high{background:#dcfce7;color:#15803d}
-  .restart-btn{width:100%;padding:12px;background:#f1f5f9;color:#475569;border:none;border-radius:8px;font-size:0.9rem;font-weight:600;cursor:pointer;margin-top:10px;transition:background 0.2s}
-  .restart-btn:hover{background:#e2e8f0}
-  .disclaimer{background:#fef9c3;border-radius:8px;padding:12px 14px;font-size:0.78rem;color:#92400e;line-height:1.6;margin-top:14px}
+.thankyou{display:none;padding:40px 32px;text-align:center}
+.thankyou .ty-icon{font-size:3rem;margin-bottom:16px}
+.thankyou h2{font-size:1.3rem;font-weight:700;color:#1e293b;margin-bottom:14px}
+.thankyou p{font-size:0.92rem;color:#475569;line-height:1.7;max-width:480px;margin:0 auto 12px}
+.thankyou .sig{font-size:0.9rem;color:#2563eb;font-style:italic;font-weight:600}
+.restart-btn{padding:11px 28px;background:#f1f5f9;color:#475569;border:none;border-radius:8px;font-size:0.9rem;font-weight:600;cursor:pointer;margin-top:16px;transition:background 0.2s}
+.restart-btn:hover{background:#e2e8f0}
+
+/* Flourishing Scale */
+.fs-table{width:100%;border-collapse:collapse;margin-top:4px}
+.fs-table th{font-size:0.68rem;font-weight:700;color:#475569;text-align:center;padding:8px 4px;background:#f8fafc;border:1px solid #e2e8f0;vertical-align:bottom;line-height:1.3}
+.fs-table th.q-col{text-align:left;width:44%}
+.fs-table td{text-align:center;padding:10px 4px;border:1px solid #f1f5f9;vertical-align:middle}
+.fs-table td.q-cell{text-align:left;font-size:0.84rem;color:#1e293b;line-height:1.45;padding:10px 10px 10px 8px}
+.fs-table tr:nth-child(even){background:#fafbfc}
+.fs-table tr:hover{background:#f0f7ff}
+.fs-radio{width:18px;height:18px;accent-color:#2563eb;cursor:pointer}
+.fs-legend{display:flex;justify-content:space-between;font-size:0.72rem;color:#64748b;margin-top:8px;padding:0 2px}
+
+/* Loading spinner */
+.loading-overlay{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(255,255,255,0.8);z-index:1000;justify-content:center;align-items:center;flex-direction:column}
+.loading-overlay.active{display:flex}
+.spinner{width:40px;height:40px;border:4px solid #e2e8f0;border-top-color:#2563eb;border-radius:50%;animation:spin 0.8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.loading-text{margin-top:12px;font-size:0.9rem;color:#475569;font-weight:500}
 </style>
 </head>
 <body>
+<div class="loading-overlay" id="loadingOverlay">
+  <div class="spinner"></div>
+  <div class="loading-text">Submitting your responses...</div>
+</div>
+
 <div class="card">
   <div class="header">
-    <h1 id="hTitle">Research Survey — Villalobos, MAPUA University</h1>
-    <p id="hSub">Introduction & Informed Consent</p>
+    <h1>Psychological Pathways to Flourishing</h1>
+    <p id="hSub">Introduction &amp; Informed Consent</p>
     <div class="prog-wrap"><div class="prog-bar" id="progBar" style="width:0%"></div></div>
     <div class="prog-lbl" id="progLbl">Step 1 of 6</div>
   </div>
 
   <div class="body" id="surveyBody">
 
-    <!-- ===== SEC 0: INTRO & CONSENT ===== -->
+    <!-- ===== CONSENT ===== -->
     <div class="section active" id="sec-intro">
-      <div class="sec-title">Introduction & Informed Consent</div>
+      <div class="sec-title">Introduction &amp; Informed Consent</div>
       <div class="intro-box">
-        <strong>I am Jolina U. Villalobos</strong>, a graduate student currently enrolled in the <strong>Master of Arts in Psychology</strong> program at MAPUA University. As part of the requirements for my degree, I am conducting a study entitled:<br><br>
+        Greetings! I am <strong>Jolina U. Villalobos, RPm</strong>, currently enrolled in the <strong>Master of Arts in Psychology</strong> program at <strong>Mapúa University-Makati Campus</strong>. As part of the requirements for my degree, I am conducting a study entitled:<br><br>
         <em>"Psychological Pathways Linking Physical Activity and Flourishing: A Moderated Mediation Model through Burnout and Social Support among Filipino Workers."</em><br><br>
-        This study seeks to examine how physical activity relates to flourishing, with particular attention to the mediating role of burnout and the moderating role of social support in the workplace. The findings aim to benefit Filipino workers, organizations, and mental health practitioners.
+        This study seeks to examine how physical activity relates to flourishing, with particular attention to the mediating role of burnout and the moderating role of social support in the workplace. The findings aim to benefit Filipino workers, organizations, and mental health practitioners by providing psychological insights that can inform resilience-building behaviors, workplace wellness programs, and evidence-based interventions to promote well-being and optimal functioning.
       </div>
-
       <div class="consent-block">
         <h3>Purpose of the Study</h3>
         <p>This research aims to explore the psychological pathways linking physical activity and flourishing, focusing on burnout and social support among Filipino workers.</p>
@@ -155,17 +168,16 @@
       </div>
       <div class="consent-block">
         <h3>Risks and Benefits</h3>
-        <p>There are no anticipated risks associated with participation. While you may not directly benefit, your responses will contribute to advancing psychological research and may inform workplace practices that promote well-being.</p>
+        <p>There are no anticipated risks associated with participation. While you may not directly benefit, your responses will contribute to advancing psychological research and may inform workplace practices that promote well-being. This data collection has been approved by the <strong>Mapúa University Institutional Ethics Committee</strong>.</p>
       </div>
       <div class="consent-block">
         <h3>Contact Information</h3>
-        <p>For questions about this study, you may contact Jolina U. Villalobos at <strong>[insert email/phone number]</strong>. For concerns regarding your rights as a participant, you may contact the MAPUA University Research Ethics Committee at <strong>[insert contact details]</strong>.</p>
+        <p>For questions or concerns regarding your rights as a participant in this study, you may contact Jolina U. Villalobos at <strong>juvillalobos@mymail.mapua.edu.ph</strong>.</p>
       </div>
       <div class="consent-block">
         <h3>Consent Statement</h3>
         <p>I have read and understood the information provided above. By stating my complete name and the date today below, I voluntarily consent to participate in this study and provide my responses for academic purposes.</p>
       </div>
-
       <div class="field" style="margin-top:16px">
         <label>Complete Name <span class="req">*</span> <span style="font-weight:400;color:#64748b;font-size:0.8rem">(serves as your signature of consent)</span></label>
         <input type="text" id="consent_name" placeholder="Enter your complete name">
@@ -176,15 +188,14 @@
         <input type="date" id="consent_date">
         <div class="err" id="err_cdate">Please enter today's date.</div>
       </div>
-
       <div class="nav">
         <button class="btn btn-primary" onclick="submitConsent()">I Consent — Continue →</button>
       </div>
     </div>
 
-    <!-- ===== SEC 1: DEMOGRAPHICS ===== -->
+    <!-- ===== RESPONDENT INFORMATION ===== -->
     <div class="section" id="sec-demo">
-      <div class="sec-title">Part 1 · Demographic Information</div>
+      <div class="sec-title">Part 1 · Respondent Information</div>
 
       <div class="field">
         <label>1. Full Name <span class="req">*</span></label>
@@ -198,16 +209,30 @@
       </div>
       <div class="field">
         <label>3. Sex <span class="req">*</span></label>
-        <div class="radio-group" id="rg_sex">
+        <div class="radio-group">
           <label class="radio-opt"><input type="radio" name="sex" value="Female"> Female</label>
           <label class="radio-opt"><input type="radio" name="sex" value="Male"> Male</label>
           <label class="radio-opt"><input type="radio" name="sex" value="Prefer not to say"> Prefer not to say</label>
+          <label class="radio-opt"><input type="radio" name="sex" value="Other"> Other</label>
         </div>
+        <div class="other-wrap" id="sex_ow"><input type="text" id="sex_other" placeholder="Please specify…"></div>
         <div class="err" id="err_sex">Please select an option.</div>
       </div>
       <div class="field">
-        <label>4. Highest Educational Attainment <span class="req">*</span></label>
-        <div class="radio-group" id="rg_edu">
+        <label>4. Civil Status <span class="req">*</span></label>
+        <div class="radio-group">
+          <label class="radio-opt"><input type="radio" name="civil" value="Single"> Single</label>
+          <label class="radio-opt"><input type="radio" name="civil" value="Married"> Married</label>
+          <label class="radio-opt"><input type="radio" name="civil" value="Widowed"> Widowed</label>
+          <label class="radio-opt"><input type="radio" name="civil" value="Separated/Divorced"> Separated / Divorced</label>
+          <label class="radio-opt"><input type="radio" name="civil" value="Other"> Other</label>
+        </div>
+        <div class="other-wrap" id="civil_ow"><input type="text" id="civil_other" placeholder="Please specify…"></div>
+        <div class="err" id="err_civil">Please select an option.</div>
+      </div>
+      <div class="field">
+        <label>5. Highest Educational Attainment <span class="req">*</span></label>
+        <div class="radio-group">
           <label class="radio-opt"><input type="radio" name="edu" value="College Graduate"> College Graduate</label>
           <label class="radio-opt"><input type="radio" name="edu" value="Postgraduate Degree"> Postgraduate Degree</label>
           <label class="radio-opt"><input type="radio" name="edu" value="Other"> Other</label>
@@ -216,8 +241,8 @@
         <div class="err" id="err_edu">Please select an option.</div>
       </div>
       <div class="field">
-        <label>5. Work Arrangement <span class="req">*</span></label>
-        <div class="radio-group" id="rg_work">
+        <label>6. Work Arrangement <span class="req">*</span></label>
+        <div class="radio-group">
           <label class="radio-opt"><input type="radio" name="work" value="On-site"> On-site</label>
           <label class="radio-opt"><input type="radio" name="work" value="Remote"> Remote</label>
           <label class="radio-opt"><input type="radio" name="work" value="Hybrid"> Hybrid</label>
@@ -227,8 +252,18 @@
         <div class="err" id="err_work">Please select an option.</div>
       </div>
       <div class="field">
-        <label>6. Employment Status <span class="req">*</span></label>
-        <div class="radio-group" id="rg_emp">
+        <label>7. Work Schedule <span class="req">*</span></label>
+        <div class="radio-group">
+          <label class="radio-opt"><input type="radio" name="wsched" value="Regular day shift"> Regular day shift</label>
+          <label class="radio-opt"><input type="radio" name="wsched" value="Night shift"> Night shift</label>
+          <label class="radio-opt"><input type="radio" name="wsched" value="Rotating shift"> Rotating shift</label>
+          <label class="radio-opt"><input type="radio" name="wsched" value="Flexible schedule"> Flexible schedule</label>
+        </div>
+        <div class="err" id="err_wsched">Please select an option.</div>
+      </div>
+      <div class="field">
+        <label>8. Employment Status <span class="req">*</span></label>
+        <div class="radio-group">
           <label class="radio-opt"><input type="radio" name="emp" value="Full-time (at least 40 hours per week)"> Full-time (at least 40 hours per week)</label>
           <label class="radio-opt"><input type="radio" name="emp" value="Other"> Other</label>
         </div>
@@ -236,8 +271,8 @@
         <div class="err" id="err_emp">Please select an option.</div>
       </div>
       <div class="field">
-        <label>7. Length of Employment in Current Organization/Company <span class="req">*</span></label>
-        <div class="radio-group" id="rg_tenure">
+        <label>9. Length of Employment in Current Organization/Company <span class="req">*</span></label>
+        <div class="radio-group">
           <label class="radio-opt"><input type="radio" name="tenure" value="1–3 years"> 1–3 years</label>
           <label class="radio-opt"><input type="radio" name="tenure" value="4–6 years"> 4–6 years</label>
           <label class="radio-opt"><input type="radio" name="tenure" value="7 years or more"> 7 years or more</label>
@@ -245,8 +280,8 @@
         <div class="err" id="err_tenure">Please select an option.</div>
       </div>
       <div class="field">
-        <label>8. Job Position Level <span class="req">*</span></label>
-        <div class="radio-group" id="rg_pos">
+        <label>10. Job Position Level <span class="req">*</span></label>
+        <div class="radio-group">
           <label class="radio-opt"><input type="radio" name="pos" value="Rank-and-file"> Rank-and-file</label>
           <label class="radio-opt"><input type="radio" name="pos" value="Supervisory"> Supervisory</label>
           <label class="radio-opt"><input type="radio" name="pos" value="Middle Management"> Middle Management</label>
@@ -256,8 +291,8 @@
         <div class="err" id="err_pos">Please select an option.</div>
       </div>
       <div class="field">
-        <label>9. Type of Job <span class="req">*</span></label>
-        <div class="radio-group" id="rg_jobtype">
+        <label>11. Type of Job <span class="req">*</span></label>
+        <div class="radio-group">
           <label class="radio-opt"><input type="radio" name="jobtype" value="Administrative/Clerical"> Administrative/Clerical</label>
           <label class="radio-opt"><input type="radio" name="jobtype" value="Technical/IT"> Technical/IT</label>
           <label class="radio-opt"><input type="radio" name="jobtype" value="Professional (e.g., teacher, nurse, engineer)"> Professional (e.g., teacher, nurse, engineer)</label>
@@ -270,8 +305,8 @@
         <div class="err" id="err_jobtype">Please select an option.</div>
       </div>
       <div class="field">
-        <label>10. Sector of Employment <span class="req">*</span></label>
-        <div class="radio-group" id="rg_sector">
+        <label>12. Sector of Employment <span class="req">*</span></label>
+        <div class="radio-group">
           <label class="radio-opt"><input type="radio" name="sector" value="Public (government)"> Public (government)</label>
           <label class="radio-opt"><input type="radio" name="sector" value="Private (corporate/business)"> Private (corporate/business)</label>
           <label class="radio-opt"><input type="radio" name="sector" value="Other"> Other</label>
@@ -279,49 +314,89 @@
         <div class="other-wrap" id="sector_ow"><input type="text" id="sector_other" placeholder="Please specify…"></div>
         <div class="err" id="err_sector">Please select an option.</div>
       </div>
+
+      <!-- Work Location -->
       <div class="field">
-        <label>11. Work Location <span class="req">*</span></label>
-        <div class="radio-group" id="rg_loc">
-          <label class="radio-opt"><input type="radio" name="loc" value="NCR"> NCR</label>
-          <label class="radio-opt"><input type="radio" name="loc" value="Rizal"> Rizal</label>
-          <label class="radio-opt"><input type="radio" name="loc" value="Cebu"> Cebu</label>
-          <label class="radio-opt"><input type="radio" name="loc" value="Davao"> Davao</label>
-          <label class="radio-opt"><input type="radio" name="loc" value="Other"> Other</label>
+        <label>13. Work Location <span class="req">*</span></label>
+        <div class="radio-group" id="rg_wloc">
+          <div class="loc-opt" id="wloc_ncr_wrap">
+            <div class="loc-row"><input type="radio" name="wloc" value="NCR" onchange="handleLocChange('wloc')"> NCR</div>
+            <div class="loc-city" id="wloc_ncr_city"><input type="text" id="wloc_ncr_city_val" placeholder="Specify City…"></div>
+          </div>
+          <div class="loc-opt" id="wloc_luzon_wrap">
+            <div class="loc-row"><input type="radio" name="wloc" value="Luzon" onchange="handleLocChange('wloc')"> Luzon</div>
+            <div class="loc-city" id="wloc_luzon_city"><input type="text" id="wloc_luzon_city_val" placeholder="Specify City…"></div>
+          </div>
+          <div class="loc-opt" id="wloc_visayas_wrap">
+            <div class="loc-row"><input type="radio" name="wloc" value="Visayas" onchange="handleLocChange('wloc')"> Visayas</div>
+            <div class="loc-city" id="wloc_visayas_city"><input type="text" id="wloc_visayas_city_val" placeholder="Specify City…"></div>
+          </div>
+          <div class="loc-opt" id="wloc_mindanao_wrap">
+            <div class="loc-row"><input type="radio" name="wloc" value="Mindanao" onchange="handleLocChange('wloc')"> Mindanao</div>
+            <div class="loc-city" id="wloc_mindanao_city"><input type="text" id="wloc_mindanao_city_val" placeholder="Specify City…"></div>
+          </div>
         </div>
-        <div class="other-wrap" id="loc_ow"><input type="text" id="loc_other" placeholder="Please specify…"></div>
-        <div class="err" id="err_loc">Please select an option.</div>
+        <div class="err" id="err_wloc">Please select an option.</div>
       </div>
+
+      <!-- Region and City of Residence -->
       <div class="field">
-        <label>12. I am physically capable of engaging in moderate physical activity. <span class="req">*</span></label>
-        <div class="radio-group" id="rg_capable">
-          <label class="radio-opt"><input type="radio" name="capable" value="Yes"> Yes</label>
-          <label class="radio-opt"><input type="radio" name="capable" value="No"> No</label>
+        <label>14. Region and City of Residence <span class="req">*</span></label>
+        <div class="radio-group" id="rg_rloc">
+          <div class="loc-opt" id="rloc_ncr_wrap">
+            <div class="loc-row"><input type="radio" name="rloc" value="NCR" onchange="handleLocChange('rloc')"> NCR</div>
+            <div class="loc-city" id="rloc_ncr_city"><input type="text" id="rloc_ncr_city_val" placeholder="Specify City…"></div>
+          </div>
+          <div class="loc-opt" id="rloc_luzon_wrap">
+            <div class="loc-row"><input type="radio" name="rloc" value="Luzon" onchange="handleLocChange('rloc')"> Luzon</div>
+            <div class="loc-city" id="rloc_luzon_city"><input type="text" id="rloc_luzon_city_val" placeholder="Specify City…"></div>
+          </div>
+          <div class="loc-opt" id="rloc_visayas_wrap">
+            <div class="loc-row"><input type="radio" name="rloc" value="Visayas" onchange="handleLocChange('rloc')"> Visayas</div>
+            <div class="loc-city" id="rloc_visayas_city"><input type="text" id="rloc_visayas_city_val" placeholder="Specify City…"></div>
+          </div>
+          <div class="loc-opt" id="rloc_mindanao_wrap">
+            <div class="loc-row"><input type="radio" name="rloc" value="Mindanao" onchange="handleLocChange('rloc')"> Mindanao</div>
+            <div class="loc-city" id="rloc_mindanao_city"><input type="text" id="rloc_mindanao_city_val" placeholder="Specify City…"></div>
+          </div>
         </div>
-        <div class="err" id="err_capable">Please select an option.</div>
+        <div class="err" id="err_rloc">Please select an option.</div>
+      </div>
+
+      <!-- Physical Activity Level -->
+      <div class="field">
+        <label>15. Physical Activity Level <span class="req">*</span></label>
+        <div class="radio-group">
+          <label class="radio-opt"><input type="radio" name="palevel" value="Sedentary"> Sedentary <span style="font-weight:400;color:#64748b">(little or no physical activity)</span></label>
+          <label class="radio-opt"><input type="radio" name="palevel" value="Moderately active"> Moderately active <span style="font-weight:400;color:#64748b">(exercise 1–3 times per week)</span></label>
+          <label class="radio-opt"><input type="radio" name="palevel" value="Highly active"> Highly active <span style="font-weight:400;color:#64748b">(exercise 4+ times per week)</span></label>
+        </div>
+        <div class="err" id="err_palevel">Please select an option.</div>
       </div>
 
       <div class="nav">
-        <button class="btn btn-secondary" onclick="goSec('sec-intro','sec-demo',0)">← Back</button>
+        <button class="btn btn-secondary" onclick="navTo('sec-intro','sec-demo',0,'Step 1 of 6','Introduction &amp; Informed Consent')">← Back</button>
         <button class="btn btn-primary" onclick="submitDemo()">Next: Physical Activity →</button>
       </div>
     </div>
 
-    <!-- ===== SEC 2: IPAQ-SF ===== -->
+    <!-- ===== IPAQ ===== -->
     <div class="section" id="sec-ipaq">
       <div class="sec-title">Part 2 · International Physical Activity Questionnaire (IPAQ-SF)</div>
-      <div class="intro-box" style="margin-bottom:18px">Think about the physical activities you do at work, at home, to get from place to place, and in your spare time over the <strong>last 7 days</strong>. Count only activities done for at least 10 minutes at a time.</div>
+      <div class="intro-box">We are interested in finding out about the kinds of physical activities that people do as part of their everyday lives. The questions will ask you about the time you spent being physically active in the <strong>last 7 days</strong>. Please answer each question even if you do not consider yourself to be an active person. Please think about the activities you do at work, as part of your house and yard work, to get from place to place, and in your spare time for recreation, exercise or sport.</div>
 
       <!-- Q1 -->
       <div class="ipaq-q" id="iq1" style="display:block">
-        <div class="q-context"><strong>Vigorous activities</strong> take hard physical effort and make you breathe much harder than normal (e.g., heavy lifting, digging, aerobics, fast bicycling).</div>
-        <div class="q-text">1. During the last 7 days, on how many days did you do <strong>vigorous</strong> physical activities?</div>
-        <div class="skip-note" id="skip1">If NO → skip to Question 3</div>
-        <div class="radio-group" style="margin-bottom:10px">
-          <label class="radio-opt"><input type="radio" name="q1yn" value="yes"> Yes, I did vigorous activities</label>
-          <label class="radio-opt"><input type="radio" name="q1yn" value="no"> No vigorous physical activities</label>
+        <div class="q-context">Think about all the <strong>vigorous activities</strong> that you did in the last 7 days. Vigorous physical activities refer to activities that take hard physical effort and make you breathe much harder than normal. Think only about those physical activities that you did for at least 10 minutes at a time.</div>
+        <div class="q-text">1. During the last 7 days, on how many days did you do vigorous physical activities like heavy lifting, digging, aerobics, or fast bicycling?</div>
+        <div class="radio-group" style="margin-bottom:12px">
+          <label class="radio-opt"><input type="radio" name="q1yn" value="yes" onchange="onYN('q1','yes')"> Yes</label>
+          <label class="radio-opt"><input type="radio" name="q1yn" value="no" onchange="onYN('q1','no')"> No vigorous physical activities &nbsp;<em style="color:#92400e;font-size:0.82rem">(Skip to Question 3)</em></label>
         </div>
-        <div id="q1_detail" style="display:none">
+        <div id="q1_detail" style="display:none;margin-top:4px">
+          <label style="font-size:0.83rem;color:#475569;display:block;margin-bottom:6px">Number of days:</label>
           <div class="number-input"><input type="number" id="q1_days" min="1" max="7" placeholder="0"><span>days per week</span></div>
+          <div class="err" id="err_q1days">Please enter the number of days.</div>
         </div>
         <div class="err" id="err_q1">Please select an option.</div>
         <div class="nav"><button class="btn btn-secondary" onclick="ipaqBack()">← Back</button><button class="btn btn-primary" onclick="ipaqNext(1)">Next →</button></div>
@@ -331,24 +406,25 @@
       <div class="ipaq-q" id="iq2">
         <div class="q-text">2. How much time did you usually spend doing <strong>vigorous</strong> physical activities on one of those days?</div>
         <div class="time-inputs">
-          <div class="number-input"><input type="number" id="q2h" min="0" max="24" placeholder="0" oninput="syncDK('q2')"><span>hours/day (max 24)</span></div>
-          <div class="number-input"><input type="number" id="q2m" min="0" max="1440" placeholder="0" oninput="syncDK('q2')"><span>mins/day (max 1440)</span></div>
+          <div class="number-input"><input type="number" id="q2h" min="0" max="24" placeholder="0" oninput="syncDK('q2')"><span>hours per day <em style="color:#94a3b8">(max 24)</em></span></div>
+          <div class="number-input"><input type="number" id="q2m" min="0" max="60" placeholder="0" oninput="syncDK('q2')"><span>minutes per day <em style="color:#94a3b8">(max 60)</em></span></div>
         </div>
-        <label class="checkbox-opt" id="q2dk_wrap"><input type="checkbox" id="q2_dk"> <span>Don't know / Not sure</span></label>
+        <label class="checkbox-opt" id="q2dk_wrap"><input type="checkbox" id="q2_dk" onchange="toggleDK('q2')"> <span>Don't know / Not sure</span></label>
+        <div class="req-note" id="req_q2">Please enter hours/minutes or select "Don't know / Not sure."</div>
         <div class="nav"><button class="btn btn-secondary" onclick="ipaqBack()">← Back</button><button class="btn btn-primary" onclick="ipaqNext(2)">Next →</button></div>
       </div>
 
       <!-- Q3 -->
       <div class="ipaq-q" id="iq3">
-        <div class="q-context"><strong>Moderate activities</strong> take moderate physical effort and make you breathe somewhat harder than normal (e.g., carrying light loads, bicycling at regular pace, doubles tennis). <strong>Do not include walking.</strong></div>
-        <div class="q-text">3. During the last 7 days, on how many days did you do <strong>moderate</strong> physical activities?</div>
-        <div class="skip-note" id="skip3">If NO → skip to Question 5</div>
-        <div class="radio-group" style="margin-bottom:10px">
-          <label class="radio-opt"><input type="radio" name="q3yn" value="yes"> Yes, I did moderate activities</label>
-          <label class="radio-opt"><input type="radio" name="q3yn" value="no"> No moderate physical activities</label>
+        <div class="q-text">3. During the last 7 days, on how many days did you do moderate physical activities like carrying light loads, bicycling at a regular pace, or doubles tennis? Do not include walking.</div>
+        <div class="radio-group" style="margin-bottom:12px">
+          <label class="radio-opt"><input type="radio" name="q3yn" value="yes" onchange="onYN('q3','yes')"> Yes</label>
+          <label class="radio-opt"><input type="radio" name="q3yn" value="no" onchange="onYN('q3','no')"> No moderate physical activities &nbsp;<em style="color:#92400e;font-size:0.82rem">(Skip to Question 5)</em></label>
         </div>
-        <div id="q3_detail" style="display:none">
+        <div id="q3_detail" style="display:none;margin-top:4px">
+          <label style="font-size:0.83rem;color:#475569;display:block;margin-bottom:6px">Number of days:</label>
           <div class="number-input"><input type="number" id="q3_days" min="1" max="7" placeholder="0"><span>days per week</span></div>
+          <div class="err" id="err_q3days">Please enter the number of days.</div>
         </div>
         <div class="err" id="err_q3">Please select an option.</div>
         <div class="nav"><button class="btn btn-secondary" onclick="ipaqBack()">← Back</button><button class="btn btn-primary" onclick="ipaqNext(3)">Next →</button></div>
@@ -356,26 +432,28 @@
 
       <!-- Q4 -->
       <div class="ipaq-q" id="iq4">
-        <div class="q-text">4. How much time did you usually spend doing <strong>moderate</strong> physical activities on one of those days?</div>
+        <div class="q-text">4. How much time did you usually spend doing moderate physical activities on one of those days?</div>
         <div class="time-inputs">
-          <div class="number-input"><input type="number" id="q4h" min="0" max="24" placeholder="0" oninput="syncDK('q4')"><span>hours/day (max 24)</span></div>
-          <div class="number-input"><input type="number" id="q4m" min="0" max="1440" placeholder="0" oninput="syncDK('q4')"><span>mins/day (max 1440)</span></div>
+          <div class="number-input"><input type="number" id="q4h" min="0" max="24" placeholder="0" oninput="syncDK('q4')"><span>hours per day <em style="color:#94a3b8">(max 24)</em></span></div>
+          <div class="number-input"><input type="number" id="q4m" min="0" max="60" placeholder="0" oninput="syncDK('q4')"><span>minutes per day <em style="color:#94a3b8">(max 60)</em></span></div>
         </div>
-        <label class="checkbox-opt" id="q4dk_wrap"><input type="checkbox" id="q4_dk"> <span>Don't know / Not sure</span></label>
+        <label class="checkbox-opt" id="q4dk_wrap"><input type="checkbox" id="q4_dk" onchange="toggleDK('q4')"> <span>Don't know / Not sure</span></label>
+        <div class="req-note" id="req_q4">Please enter hours/minutes or select "Don't know / Not sure."</div>
         <div class="nav"><button class="btn btn-secondary" onclick="ipaqBack()">← Back</button><button class="btn btn-primary" onclick="ipaqNext(4)">Next →</button></div>
       </div>
 
       <!-- Q5 -->
       <div class="ipaq-q" id="iq5">
-        <div class="q-context">Think about <strong>walking</strong> at work, at home, for transport, or leisure — at least 10 minutes at a time.</div>
+        <div class="q-context">Think about the time you spent <strong>walking</strong> in the last 7 days. This includes at work and at home, walking to travel from place to place, and any other walking that you have done solely for recreation, sport, exercise, or leisure.</div>
         <div class="q-text">5. During the last 7 days, on how many days did you walk for at least 10 minutes at a time?</div>
-        <div class="skip-note" id="skip5">If NO → skip to Question 7</div>
-        <div class="radio-group" style="margin-bottom:10px">
-          <label class="radio-opt"><input type="radio" name="q5yn" value="yes"> Yes, I walked</label>
-          <label class="radio-opt"><input type="radio" name="q5yn" value="no"> No walking</label>
+        <div class="radio-group" style="margin-bottom:12px">
+          <label class="radio-opt"><input type="radio" name="q5yn" value="yes" onchange="onYN('q5','yes')"> Yes</label>
+          <label class="radio-opt"><input type="radio" name="q5yn" value="no" onchange="onYN('q5','no')"> No walking &nbsp;<em style="color:#92400e;font-size:0.82rem">(Skip to Question 7)</em></label>
         </div>
-        <div id="q5_detail" style="display:none">
+        <div id="q5_detail" style="display:none;margin-top:4px">
+          <label style="font-size:0.83rem;color:#475569;display:block;margin-bottom:6px">Number of days:</label>
           <div class="number-input"><input type="number" id="q5_days" min="1" max="7" placeholder="0"><span>days per week</span></div>
+          <div class="err" id="err_q5days">Please enter the number of days.</div>
         </div>
         <div class="err" id="err_q5">Please select an option.</div>
         <div class="nav"><button class="btn btn-secondary" onclick="ipaqBack()">← Back</button><button class="btn btn-primary" onclick="ipaqNext(5)">Next →</button></div>
@@ -383,126 +461,161 @@
 
       <!-- Q6 -->
       <div class="ipaq-q" id="iq6">
-        <div class="q-text">6. How much time did you usually spend <strong>walking</strong> on one of those days?</div>
+        <div class="q-text">6. How much time did you usually spend walking on one of those days?</div>
         <div class="time-inputs">
-          <div class="number-input"><input type="number" id="q6h" min="0" max="24" placeholder="0" oninput="syncDK('q6')"><span>hours/day (max 24)</span></div>
-          <div class="number-input"><input type="number" id="q6m" min="0" max="1440" placeholder="0" oninput="syncDK('q6')"><span>mins/day (max 1440)</span></div>
+          <div class="number-input"><input type="number" id="q6h" min="0" max="24" placeholder="0" oninput="syncDK('q6')"><span>hours per day <em style="color:#94a3b8">(max 24)</em></span></div>
+          <div class="number-input"><input type="number" id="q6m" min="0" max="60" placeholder="0" oninput="syncDK('q6')"><span>minutes per day <em style="color:#94a3b8">(max 60)</em></span></div>
         </div>
-        <label class="checkbox-opt" id="q6dk_wrap"><input type="checkbox" id="q6_dk"> <span>Don't know / Not sure</span></label>
+        <label class="checkbox-opt" id="q6dk_wrap"><input type="checkbox" id="q6_dk" onchange="toggleDK('q6')"> <span>Don't know / Not sure</span></label>
+        <div class="req-note" id="req_q6">Please enter hours/minutes or select "Don't know / Not sure."</div>
         <div class="nav"><button class="btn btn-secondary" onclick="ipaqBack()">← Back</button><button class="btn btn-primary" onclick="ipaqNext(6)">Next →</button></div>
       </div>
 
       <!-- Q7 -->
       <div class="ipaq-q" id="iq7">
-        <div class="q-context">Include time sitting at work, at home, during coursework, and leisure (e.g., desk work, watching TV, reading).</div>
-        <div class="q-text">7. During the last 7 days, how much time did you spend <strong>sitting</strong> on a week day?</div>
+        <div class="q-context">The last question is about the time you spent <strong>sitting</strong> on weekdays during the last 7 days. Include time spent at work, at home, while doing course work and during leisure time. This may include time spent sitting at a desk, visiting friends, reading, or sitting or lying down to watch television.</div>
+        <div class="q-text">7. During the last 7 days, how much time did you spend sitting on a week day?</div>
         <div class="time-inputs">
-          <div class="number-input"><input type="number" id="q7h" min="0" max="24" placeholder="0" oninput="syncDK('q7')"><span>hours/day (max 24)</span></div>
-          <div class="number-input"><input type="number" id="q7m" min="0" max="1440" placeholder="0" oninput="syncDK('q7')"><span>mins/day (max 1440)</span></div>
+          <div class="number-input"><input type="number" id="q7h" min="0" max="24" placeholder="0" oninput="syncDK('q7')"><span>hours per day <em style="color:#94a3b8">(max 24)</em></span></div>
+          <div class="number-input"><input type="number" id="q7m" min="0" max="60" placeholder="0" oninput="syncDK('q7')"><span>minutes per day <em style="color:#94a3b8">(max 60)</em></span></div>
         </div>
-        <label class="checkbox-opt" id="q7dk_wrap"><input type="checkbox" id="q7_dk"> <span>Don't know / Not sure</span></label>
+        <label class="checkbox-opt" id="q7dk_wrap"><input type="checkbox" id="q7_dk" onchange="toggleDK('q7')"> <span>Don't know / Not sure</span></label>
+        <div class="req-note" id="req_q7">Please enter hours/minutes or select "Don't know / Not sure."</div>
         <div class="nav"><button class="btn btn-secondary" onclick="ipaqBack()">← Back</button><button class="btn btn-primary" onclick="ipaqNext(7)">Next →</button></div>
       </div>
     </div>
 
-    <!-- ===== SEC 3: MBI ===== -->
-    <div class="section" id="sec-mbi">
-      <div class="sec-title">Part 3 · Maslach Burnout Inventory (MBI)</div>
-      <div class="intro-box">For each statement below, indicate <strong>how often you feel that way</strong> using the scale from 0 (Never) to 6 (Every Day).</div>
-
-      <div style="display:flex;gap:4px;flex-wrap:wrap;margin-bottom:6px;font-size:0.72rem;color:#64748b;font-weight:600">
-        <span style="flex:1;text-align:center">0<br>Never</span>
-        <span style="flex:1;text-align:center">1<br>Few/Yr</span>
-        <span style="flex:1;text-align:center">2<br>Monthly</span>
-        <span style="flex:1;text-align:center">3<br>Few/Mo</span>
-        <span style="flex:1;text-align:center">4<br>Weekly</span>
-        <span style="flex:1;text-align:center">5<br>Few/Wk</span>
-        <span style="flex:1;text-align:center">6<br>Daily</span>
+    <!-- ===== FLOURISHING SCALE ===== -->
+    <div class="section" id="sec-flourishing">
+      <div class="sec-title">Part 3 · Flourishing Scale (FS)</div>
+      <div class="intro-box">Below are 8 statements with which you may agree or disagree. Using the 1–7 scale below, indicate your level of agreement with each item.</div>
+      <div style="overflow-x:auto">
+        <table class="fs-table">
+          <thead>
+            <tr>
+              <th class="q-col">Statement</th>
+              <th>1<br><span style="font-weight:400">Strongly<br>Disagree</span></th>
+              <th>2<br><span style="font-weight:400">Disagree</span></th>
+              <th>3<br><span style="font-weight:400">Slightly<br>Disagree</span></th>
+              <th>4<br><span style="font-weight:400">Neither</span></th>
+              <th>5<br><span style="font-weight:400">Slightly<br>Agree</span></th>
+              <th>6<br><span style="font-weight:400">Agree</span></th>
+              <th>7<br><span style="font-weight:400">Strongly<br>Agree</span></th>
+            </tr>
+          </thead>
+          <tbody id="fs_tbody"></tbody>
+        </table>
       </div>
-
-      <p style="font-size:0.8rem;font-weight:700;color:#475569;margin:14px 0 10px">Section A — Exhaustion</p>
-      <div id="mbi_a"></div>
-      <p style="font-size:0.8rem;font-weight:700;color:#475569;margin:14px 0 10px">Section B — Depersonalization</p>
-      <div id="mbi_b"></div>
-      <p style="font-size:0.8rem;font-weight:700;color:#475569;margin:14px 0 10px">Section C — Personal Achievement</p>
-      <div id="mbi_c"></div>
-      <div class="err" id="err_mbi">Please answer all questions before continuing.</div>
+      <div class="fs-legend"><span>← Strongly Disagree</span><span>Neither</span><span>Strongly Agree →</span></div>
+      <div class="err" id="err_fs" style="margin-top:10px">Please answer all statements before continuing.</div>
       <div class="nav">
-        <button class="btn btn-secondary" onclick="goSec('sec-ipaq','sec-mbi',50)">← Back</button>
+        <button class="btn btn-secondary" onclick="navTo('sec-ipaq','sec-flourishing',33,'Step 3 of 6','Part 2 · Physical Activity (IPAQ-SF)')">← Back</button>
+        <button class="btn btn-primary" onclick="submitFlourishing()">Next: Burnout →</button>
+      </div>
+    </div>
+
+    <!-- ===== MBI Section A ===== -->
+    <div class="section" id="sec-mbi">
+      <div class="sec-title">Part 4 · Maslach Burnout Inventory (MBI)</div>
+      <div class="intro-box">For each of the following statements, please indicate <strong>how often you feel that way</strong> about your work by selecting the number that best describes your experience.</div>
+      <div style="overflow-x:auto">
+        <table class="mbi-table">
+          <thead>
+            <tr>
+              <th class="q-col">Statement</th>
+              <th>0<br><span style="font-weight:400">Never</span></th>
+              <th>1<br><span style="font-weight:400">A Few Times per Year</span></th>
+              <th>2<br><span style="font-weight:400">Once a Month</span></th>
+              <th>3<br><span style="font-weight:400">A Few Times per Month</span></th>
+              <th>4<br><span style="font-weight:400">Once a Week</span></th>
+              <th>5<br><span style="font-weight:400">A Few Times per Week</span></th>
+              <th>6<br><span style="font-weight:400">Every Day</span></th>
+            </tr>
+          </thead>
+          <tbody id="mbi_tbody"></tbody>
+        </table>
+      </div>
+      <div class="err" id="err_mbi" style="margin-top:10px">Please answer all statements before continuing.</div>
+      <div class="nav">
+        <button class="btn btn-secondary" onclick="navTo('sec-flourishing','sec-mbi',50,'Step 4 of 6','Part 3 · Flourishing Scale (FS)')">← Back</button>
         <button class="btn btn-primary" onclick="submitMBI()">Next: Social Support →</button>
       </div>
     </div>
 
-    <!-- ===== SEC 4: MSPSS ===== -->
+    <!-- ===== MSPSS ===== -->
     <div class="section" id="sec-mspss">
-      <div class="sec-title">Part 4 · Multidimensional Scale of Perceived Social Support (MSPSS)</div>
-      <div class="intro-box">Read each statement carefully and indicate how you feel about it using the scale below.<br><br>
-        <strong>1</strong> = Very Strongly Disagree &nbsp;·&nbsp; <strong>2</strong> = Strongly Disagree &nbsp;·&nbsp; <strong>3</strong> = Mildly Disagree<br>
-        <strong>4</strong> = Neutral &nbsp;·&nbsp; <strong>5</strong> = Mildly Agree &nbsp;·&nbsp; <strong>6</strong> = Strongly Agree &nbsp;·&nbsp; <strong>7</strong> = Very Strongly Agree
+      <div class="sec-title">Part 5 · Multidimensional Scale of Perceived Social Support (MSPSS)</div>
+      <div class="intro-box">We are interested in how you feel about the following statements. Read each statement carefully and indicate how you feel about each one.</div>
+      <div style="overflow-x:auto">
+        <table class="mspss-table">
+          <thead>
+            <tr>
+              <th class="q-col">Statement</th>
+              <th><span class="num">1</span>Very Strongly Disagree</th>
+              <th><span class="num">2</span>Strongly Disagree</th>
+              <th><span class="num">3</span>Mildly Disagree</th>
+              <th><span class="num">4</span>Neutral</th>
+              <th><span class="num">5</span>Mildly Agree</th>
+              <th><span class="num">6</span>Strongly Agree</th>
+              <th><span class="num">7</span>Very Strongly Agree</th>
+            </tr>
+          </thead>
+          <tbody id="mspss_tbody"></tbody>
+        </table>
       </div>
-      <div id="mspss_items"></div>
-      <div class="err" id="err_mspss">Please answer all questions before submitting.</div>
+      <div class="scale-legend"><span>← Disagree</span><span>Neutral</span><span>Agree →</span></div>
+      <div class="err" id="err_mspss" style="margin-top:10px">Please answer all statements before submitting.</div>
       <div class="nav">
-        <button class="btn btn-secondary" onclick="goSec('sec-mbi','sec-mspss',65)">← Back</button>
+        <button class="btn btn-secondary" onclick="navTo('sec-mbi','sec-mspss',67,'Step 5 of 6','Part 4 · Burnout (MBI)')">← Back</button>
         <button class="btn btn-primary" onclick="submitSurvey()">Submit Survey →</button>
       </div>
     </div>
-  </div>
 
-  <!-- ===== RESULTS ===== -->
-  <div class="results" id="resultsPanel">
-    <h2>Thank you, <span id="r_name">Participant</span>!</h2>
-    <p class="sub">Your responses have been recorded for academic purposes.</p>
+  </div><!-- end surveyBody -->
 
-    <div class="result-section">
-      <h3>Demographic Profile</h3>
-      <div class="result-row"><span class="lbl">Age</span><span class="val" id="r_age">—</span></div>
-      <div class="result-row"><span class="lbl">Sex</span><span class="val" id="r_sex">—</span></div>
-      <div class="result-row"><span class="lbl">Education</span><span class="val" id="r_edu">—</span></div>
-      <div class="result-row"><span class="lbl">Work Arrangement</span><span class="val" id="r_work">—</span></div>
-      <div class="result-row"><span class="lbl">Employment Status</span><span class="val" id="r_emp">—</span></div>
-      <div class="result-row"><span class="lbl">Tenure</span><span class="val" id="r_tenure">—</span></div>
-      <div class="result-row"><span class="lbl">Job Level</span><span class="val" id="r_pos">—</span></div>
-      <div class="result-row"><span class="lbl">Job Type</span><span class="val" id="r_jobtype">—</span></div>
-      <div class="result-row"><span class="lbl">Sector</span><span class="val" id="r_sector">—</span></div>
-      <div class="result-row"><span class="lbl">Work Location</span><span class="val" id="r_loc">—</span></div>
-      <div class="result-row"><span class="lbl">Physically Capable</span><span class="val" id="r_capable">—</span></div>
-    </div>
-
-    <div class="result-section">
-      <h3>Physical Activity (IPAQ-SF)</h3>
-      <div class="met-box"><div><div class="ml">Total Physical Activity</div><div class="mu">MET-minutes per week</div></div><div class="mv" id="r_met">—</div></div>
-      <div id="r_actlevel"></div>
-      <div class="result-row"><span class="lbl">Vigorous</span><span class="val" id="r_vig">—</span></div>
-      <div class="result-row"><span class="lbl">Moderate</span><span class="val" id="r_mod">—</span></div>
-      <div class="result-row"><span class="lbl">Walking</span><span class="val" id="r_walk">—</span></div>
-      <div class="result-row"><span class="lbl">Sitting (weekday)</span><span class="val" id="r_sit">—</span></div>
-    </div>
-
-    <div class="result-section">
-      <h3>Burnout (MBI)</h3>
-      <div class="result-row"><span class="lbl">Section A — Exhaustion</span><span class="val" id="r_mbiA">—</span></div>
-      <div class="result-row"><span class="lbl">Section B — Depersonalization</span><span class="val" id="r_mbiB">—</span></div>
-      <div class="result-row"><span class="lbl">Section C — Personal Achievement</span><span class="val" id="r_mbiC">—</span></div>
-    </div>
-
-    <div class="result-section">
-      <h3>Social Support (MSPSS)</h3>
-      <div class="result-row"><span class="lbl">Significant Other subscale</span><span class="val" id="r_mspss_so">—</span></div>
-      <div class="result-row"><span class="lbl">Family subscale</span><span class="val" id="r_mspss_fam">—</span></div>
-      <div class="result-row"><span class="lbl">Friends subscale</span><span class="val" id="r_mspss_fri">—</span></div>
-      <div class="result-row"><span class="lbl">Total MSPSS score</span><span class="val" id="r_mspss_tot">—</span></div>
-    </div>
-
-    <div class="disclaimer">
-      <strong>Note:</strong> These results are for research purposes only and are not intended as a clinical diagnosis. If you have concerns about your mental health or well-being, please consult a qualified mental health professional.
-    </div>
+  <!-- ===== THANK YOU ===== -->
+  <div class="thankyou" id="thankyouPanel">
+    <div class="ty-icon">🙏</div>
+    <h2>Survey Complete!</h2>
+    <p>Thank you very much for your valuable participation in this study. Your contribution is essential to the progress of my research, and I truly appreciate the time you have given.</p>
+    <p class="sig">— Jolina U. Villalobos</p>
     <button class="restart-btn" onclick="restart()">↺ Start Over</button>
   </div>
 </div>
 
 <script>
-// ── DATA ──────────────────────────────────────────────────────────────────────
+// ═══════════════════════════════════════════════════════════════════════════════
+// CONFIGURATION — Replace these with your Airtable credentials
+// ═══════════════════════════════════════════════════════════════════════════════
+const AIRTABLE_CONFIG = {
+  // Your Personal Access Token (starts with "pat...")
+  // Get it from: https://airtable.com/create/tokens
+  API_KEY: 'patvQI6KIRvhALEnX.6b05bee31e742a7cb6f14f303c8c2218aca38eee5231a63e64f4c039309e2d74',
+  
+  // Your Base ID (found in the API documentation for your base)
+  // Looks like: appXXXXXXXXXXXXXX
+  BASE_ID: 'app4Hmc0skWBEvxCD',
+  
+  // Your Table Name (case-sensitive)
+  TABLE_NAME: 'Responses'
+};
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// WARNING: For production use, do NOT expose your API key in frontend code.
+// This setup is for development/testing. For production, use a backend proxy.
+// ═══════════════════════════════════════════════════════════════════════════════
+
+// ── DATA ─────────────────────────────────────────────────────────────────────
+const fsItems = [
+  "I lead a purposeful and meaningful life.",
+  "My social relationships are supportive and rewarding.",
+  "I am engaged and interested in my daily activities.",
+  "I actively contribute to the happiness and well-being of others.",
+  "I am competent and capable in the activities that are important to me.",
+  "I am a good person and live a good life.",
+  "I am optimistic about my future.",
+  "People respect me."
+];
 const mbiAItems = [
   "I feel emotionally drained by my work.",
   "Working with people all day long requires a great deal of effort.",
@@ -511,25 +624,6 @@ const mbiAItems = [
   "I feel I work too hard at my job.",
   "It stresses me too much to work in direct contact with people.",
   "I feel like I'm at the end of my rope."
-];
-const mbiBItems = [
-  "I feel I look after certain patients/clients impersonally, as if they are objects.",
-  "I feel tired when I get up in the morning and have to face another day at work.",
-  "I have the impression that my patients/clients make me responsible for some of their problems.",
-  "I am at the end of my patience at the end of my work day.",
-  "I really don't care about what happens to some of my patients/clients.",
-  "I have become more insensitive to people since I've been working.",
-  "I'm afraid that this job is making me uncaring."
-];
-const mbiCItems = [
-  "I accomplish many worthwhile things in this job.",
-  "I feel full of energy.",
-  "I am easily able to understand what my patients/clients feel.",
-  "I look after my patients'/clients' problems very effectively.",
-  "In my work, I handle emotional problems very calmly.",
-  "Through my work, I feel that I have a positive influence on people.",
-  "I am easily able to create a relaxed atmosphere with my patients/clients.",
-  "I feel refreshed when I have been close to my patients/clients at work."
 ];
 const mspssItems = [
   "There is a special person who is around when I am in need.",
@@ -546,290 +640,412 @@ const mspssItems = [
   "I can talk about my problems with my friends."
 ];
 
-// ── BUILD MBI & MSPSS ────────────────────────────────────────────────────────
-function buildMBI(items, containerId, prefix) {
-  const c = document.getElementById(containerId);
-  items.forEach((q, i) => {
-    const id = prefix + i;
-    let btns = '';
-    for (let v = 0; v <= 6; v++) btns += `<div class="mbi-btn" data-val="${v}" onclick="selectMBI('${id}',${v},this)">${v}</div>`;
-    c.innerHTML += `<div class="mbi-item" id="${id}_wrap"><div class="mbi-q">${i+1+(prefix==='mbiB_'?7:prefix==='mbiC_'?14:0)}. ${q}</div><div class="mbi-scale" id="${id}_scale">${btns}</div></div>`;
+// ── BUILD TABLES ──────────────────────────────────────────────────────────────
+function buildMBI() {
+  const tb = document.getElementById('mbi_tbody');
+  mbiAItems.forEach((q, i) => {
+    let cells = '';
+    for (let v = 0; v <= 6; v++) cells += `<td><input class="mbi-radio" type="radio" name="mbiA_${i}" value="${v}"></td>`;
+    tb.innerHTML += `<tr><td class="q-cell">${i+1}. ${q}</td>${cells}</tr>`;
   });
 }
 function buildMSPSS() {
-  const c = document.getElementById('mspss_items');
+  const tb = document.getElementById('mspss_tbody');
   mspssItems.forEach((q, i) => {
-    let btns = '';
-    for (let v = 1; v <= 7; v++) btns += `<div class="likert-btn" data-val="${v}" onclick="selectLikert('mspss_${i}',${v},this)">${v}</div>`;
-    c.innerHTML += `<div class="likert-item"><div class="likert-q">${i+1}. ${q}</div><div class="likert-scale" id="mspss_${i}_scale">${btns}</div><div class="likert-labels"><span>Very Strongly Disagree</span><span>Very Strongly Agree</span></div></div>`;
+    let cells = '';
+    for (let v = 1; v <= 7; v++) cells += `<td><input class="mspss-radio" type="radio" name="mspss_${i}" value="${v}"></td>`;
+    tb.innerHTML += `<tr><td class="q-cell">${i+1}. ${q}</td>${cells}</tr>`;
   });
 }
-buildMBI(mbiAItems,'mbi_a','mbiA_');
-buildMBI(mbiBItems,'mbi_b','mbiB_');
-buildMBI(mbiCItems,'mbi_c','mbiC_');
-buildMSPSS();
+function buildFS() {
+  const tb = document.getElementById('fs_tbody');
+  fsItems.forEach((q, i) => {
+    let cells = '';
+    for (let v = 1; v <= 7; v++) cells += `<td><input class="fs-radio" type="radio" name="fs_${i}" value="${v}"></td>`;
+    tb.innerHTML += `<tr><td class="q-cell">${i+1}. ${q}</td>${cells}</tr>`;
+  });
+}
+buildMBI(); buildMSPSS(); buildFS();
 
-// ── SELECTION HELPERS ────────────────────────────────────────────────────────
-function selectMBI(id, val, el) {
-  document.querySelectorAll(`#${id}_scale .mbi-btn`).forEach(b => b.classList.remove('selected'));
-  el.classList.add('selected');
-  el.closest('.mbi-item').dataset.val = val;
-}
-function selectLikert(id, val, el) {
-  document.querySelectorAll(`#${id}_scale .likert-btn`).forEach(b => b.classList.remove('selected'));
-  el.classList.add('selected');
-  document.getElementById(id+'_scale').closest('.likert-item').dataset.val = val;
-}
-function getMBIVal(id) {
-  const el = document.getElementById(id+'_wrap');
-  return el && el.dataset.val !== undefined ? parseInt(el.dataset.val) : null;
-}
-function getMSPSSVal(i) {
-  const el = document.getElementById('mspss_'+i+'_scale').closest('.likert-item');
-  return el && el.dataset.val !== undefined ? parseFloat(el.dataset.val) : null;
-}
-
-// ── RADIO HELPERS ─────────────────────────────────────────────────────────────
-const otherMap = {edu:'edu_ow',work:'work_ow',emp:'emp_ow',pos:'pos_ow',jobtype:'jobtype_ow',sector:'sector_ow',loc:'loc_ow'};
+// ── RADIO & OTHER FIELDS (demographics) ──────────────────────────────────────
+const otherMap = {sex:'sex_ow',civil:'civil_ow',edu:'edu_ow',work:'work_ow',emp:'emp_ow',pos:'pos_ow',jobtype:'jobtype_ow',sector:'sector_ow'};
 document.querySelectorAll('.radio-opt input[type=radio]').forEach(r => {
   r.addEventListener('change', () => {
     document.querySelectorAll(`.radio-opt input[name="${r.name}"]`).forEach(x => x.closest('.radio-opt').classList.remove('selected'));
     r.closest('.radio-opt').classList.add('selected');
-    if (otherMap[r.name]) document.getElementById(otherMap[r.name]).style.display = r.value==='Other' ? 'block' : 'none';
-    // IPAQ yes/no detail
-    ['q1yn','q3yn','q5yn'].forEach(n => {
-      if (r.name===n) {
-        const q = n.replace('yn','');
-        const det = document.getElementById(q+'_detail');
-        if (det) det.style.display = r.value==='yes' ? 'block' : 'none';
-      }
-    });
+    if (otherMap[r.name]) document.getElementById(otherMap[r.name]).style.display = r.value==='Other'?'block':'none';
   });
 });
-function getRadio(name) { const el = document.querySelector(`input[name="${name}"]:checked`); return el ? el.value : null; }
-function showErr(id, show) { const el=document.getElementById(id); if(el) el.style.display=show?'block':'none'; }
 
-// ── DK / TIME SYNC ────────────────────────────────────────────────────────────
+// ── LOCATION HANDLERS ────────────────────────────────────────────────────────
+const locRegions = ['ncr','luzon','visayas','mindanao'];
+function handleLocChange(prefix) {
+  const val = getRadio(prefix);
+  locRegions.forEach(r => {
+    const wrap = document.getElementById(`${prefix}_${r}_wrap`);
+    const city = document.getElementById(`${prefix}_${r}_city`);
+    if (!wrap||!city) return;
+    const isSelected = val && val.toLowerCase()===r;
+    wrap.classList.toggle('selected', isSelected);
+    city.style.display = isSelected ? 'block' : 'none';
+  });
+}
+
+// ── IPAQ YN TOGGLE ────────────────────────────────────────────────────────────
+function onYN(q, val) {
+  document.querySelectorAll(`input[name="${q}yn"]`).forEach(r => r.closest('.radio-opt').classList.toggle('selected', r.value===val));
+  const det = document.getElementById(q+'_detail');
+  if (det) det.style.display = val==='yes' ? 'block' : 'none';
+}
+
+// ── DK / TIME ─────────────────────────────────────────────────────────────────
 function syncDK(q) {
-  const h = document.getElementById(q+'h'), m = document.getElementById(q+'m');
-  const wrap = document.getElementById(q+'dk_wrap');
+  const h=document.getElementById(q+'h'), m=document.getElementById(q+'m'), wrap=document.getElementById(q+'dk_wrap');
   if (!wrap) return;
   const hasVal = (h&&h.value!=='')||(m&&m.value!=='');
   wrap.classList.toggle('disabled', hasVal);
   if (hasVal) { const dk=document.getElementById(q+'_dk'); if(dk) dk.checked=false; }
+  const rn=document.getElementById('req_'+q); if(rn) rn.style.display='none';
 }
-// Also disable time inputs when DK is checked
-['q2','q4','q6','q7'].forEach(q => {
-  const dk = document.getElementById(q+'_dk');
-  if (!dk) return;
-  dk.addEventListener('change', () => {
-    const h=document.getElementById(q+'h'), m=document.getElementById(q+'m');
-    if (dk.checked) { if(h){h.value='';h.disabled=true;} if(m){m.value='';m.disabled=true;} }
-    else { if(h) h.disabled=false; if(m) m.disabled=false; }
-  });
-});
+function toggleDK(q) {
+  const dk=document.getElementById(q+'_dk'), h=document.getElementById(q+'h'), m=document.getElementById(q+'m');
+  if(dk.checked){if(h){h.value='';h.disabled=true;}if(m){m.value='';m.disabled=true;}}
+  else{if(h)h.disabled=false;if(m)m.disabled=false;}
+  const rn=document.getElementById('req_'+q); if(rn) rn.style.display='none';
+}
+function validateTime(q) {
+  const h=document.getElementById(q+'h'), m=document.getElementById(q+'m'), dk=document.getElementById(q+'_dk');
+  if (dk&&dk.checked) return true;
+  const hasVal=(h&&h.value!=='')||(m&&m.value!=='');
+  const rn=document.getElementById('req_'+q);
+  if(!hasVal && rn) rn.style.display='block';
+  return hasVal;
+}
 
-// ── PROGRESS ────────────────────────────────────────────────────────────────
-function setProgress(pct, lbl, sub) {
-  document.getElementById('progBar').style.width = pct+'%';
-  document.getElementById('progLbl').textContent = lbl;
-  if (sub) document.getElementById('hSub').textContent = sub;
+// ── HELPERS ───────────────────────────────────────────────────────────────────
+function getRadio(name){const el=document.querySelector(`input[name="${name}"]:checked`);return el?el.value:null;}
+function showErr(id,show){const el=document.getElementById(id);if(el)el.style.display=show?'block':'none';}
+function setProgress(pct,lbl,sub){
+  document.getElementById('progBar').style.width=pct+'%';
+  document.getElementById('progLbl').textContent=lbl;
+  document.getElementById('hSub').textContent=sub;
   window.scrollTo(0,0);
 }
-
-// ── SECTION NAV ───────────────────────────────────────────────────────────────
-function goSec(from, current, pct) {
-  document.getElementById(current).classList.remove('active');
-  document.getElementById(from).classList.add('active');
-  setProgress(pct, '', '');
+function navTo(show,hide,pct,lbl,sub){
+  document.getElementById(hide).classList.remove('active');
+  document.getElementById(show).classList.add('active');
+  setProgress(pct,lbl,sub);
 }
 
-// ── CONSENT ──────────────────────────────────────────────────────────────────
-function submitConsent() {
-  const n = document.getElementById('consent_name').value.trim();
-  const d = document.getElementById('consent_date').value;
-  let ok = true;
-  if (!n) { showErr('err_cname',true); ok=false; } else showErr('err_cname',false);
-  if (!d) { showErr('err_cdate',true); ok=false; } else showErr('err_cdate',false);
-  if (!ok) return;
+// ── CONSENT ───────────────────────────────────────────────────────────────────
+function submitConsent(){
+  const n=document.getElementById('consent_name').value.trim(), d=document.getElementById('consent_date').value;
+  let ok=true;
+  if(!n){showErr('err_cname',true);ok=false;}else showErr('err_cname',false);
+  if(!d){showErr('err_cdate',true);ok=false;}else showErr('err_cdate',false);
+  if(!ok)return;
   document.getElementById('sec-intro').classList.remove('active');
   document.getElementById('sec-demo').classList.add('active');
-  setProgress(10,'Step 2 of 6','Part 1 · Demographics');
+  setProgress(10,'Step 2 of 6','Part 1 · Respondent Information');
 }
 
 // ── DEMOGRAPHICS ──────────────────────────────────────────────────────────────
-function submitDemo() {
-  let ok = true;
-  const name = document.getElementById('d_name').value.trim();
-  if (!name) { showErr('err_dname',true); ok=false; } else showErr('err_dname',false);
-  const age = document.getElementById('d_age').value;
-  if (!age) { showErr('err_age',true); ok=false; } else showErr('err_age',false);
-  ['sex','edu','work','emp','tenure','pos','jobtype','sector','loc','capable'].forEach(n => {
-    if (!getRadio(n)) { showErr('err_'+n,true); ok=false; } else showErr('err_'+n,false);
+function submitDemo(){
+  let ok=true;
+  if(!document.getElementById('d_name').value.trim()){showErr('err_dname',true);ok=false;}else showErr('err_dname',false);
+  if(!document.getElementById('d_age').value){showErr('err_age',true);ok=false;}else showErr('err_age',false);
+  ['sex','civil','edu','work','wsched','emp','tenure','pos','jobtype','sector','palevel'].forEach(n=>{
+    if(!getRadio(n)){showErr('err_'+n,true);ok=false;}else showErr('err_'+n,false);
   });
-  if (!ok) return;
+  // location fields
+  if(!getRadio('wloc')){showErr('err_wloc',true);ok=false;}else showErr('err_wloc',false);
+  if(!getRadio('rloc')){showErr('err_rloc',true);ok=false;}else showErr('err_rloc',false);
+  if(!ok)return;
   document.getElementById('sec-demo').classList.remove('active');
   document.getElementById('sec-ipaq').classList.add('active');
-  ipaqStack = []; showIpaqQ('iq1');
-  setProgress(25,'Step 3 of 6','Part 2 · Physical Activity (IPAQ-SF)');
+  ipaqStack=[];
+  document.querySelectorAll('.ipaq-q').forEach(el=>el.style.display='none');
+  document.getElementById('iq1').style.display='block';
+  setProgress(20,'Step 3 of 6','Part 2 · Physical Activity (IPAQ-SF)');
 }
 
-// ── IPAQ NAVIGATION ───────────────────────────────────────────────────────────
-let ipaqStack = [];
-function showIpaqQ(id) {
-  document.querySelectorAll('.ipaq-q').forEach(el => el.style.display='none');
-  document.getElementById(id).style.display='block';
-  window.scrollTo(0,0);
-}
-function ipaqNext(qNum) {
-  if (qNum===1) {
+// ── IPAQ ─────────────────────────────────────────────────────────────────────
+let ipaqStack=[];
+function showIpaqQ(id){document.querySelectorAll('.ipaq-q').forEach(el=>el.style.display='none');document.getElementById(id).style.display='block';window.scrollTo(0,0);}
+
+function ipaqNext(qNum){
+  if(qNum===1){
     const yn=getRadio('q1yn');
-    if (!yn) { showErr('err_q1',true); return; } showErr('err_q1',false);
-    ipaqStack.push('iq1');
-    showIpaqQ(yn==='no' ? 'iq3' : 'iq2');
-  } else if (qNum===2) {
-    ipaqStack.push('iq2'); showIpaqQ('iq3');
-  } else if (qNum===3) {
+    if(!yn){showErr('err_q1',true);return;}showErr('err_q1',false);
+    if(yn==='yes'){
+      const d=document.getElementById('q1_days').value;
+      if(!d){showErr('err_q1days',true);return;}showErr('err_q1days',false);
+    }
+    ipaqStack.push('iq1');showIpaqQ(yn==='no'?'iq3':'iq2');
+  } else if(qNum===2){
+    if(!validateTime('q2'))return;
+    ipaqStack.push('iq2');showIpaqQ('iq3');
+  } else if(qNum===3){
     const yn=getRadio('q3yn');
-    if (!yn) { showErr('err_q3',true); return; } showErr('err_q3',false);
-    ipaqStack.push('iq3');
-    showIpaqQ(yn==='no' ? 'iq5' : 'iq4');
-  } else if (qNum===4) {
-    ipaqStack.push('iq4'); showIpaqQ('iq5');
-  } else if (qNum===5) {
+    if(!yn){showErr('err_q3',true);return;}showErr('err_q3',false);
+    if(yn==='yes'){
+      const d=document.getElementById('q3_days').value;
+      if(!d){showErr('err_q3days',true);return;}showErr('err_q3days',false);
+    }
+    ipaqStack.push('iq3');showIpaqQ(yn==='no'?'iq5':'iq4');
+  } else if(qNum===4){
+    if(!validateTime('q4'))return;
+    ipaqStack.push('iq4');showIpaqQ('iq5');
+  } else if(qNum===5){
     const yn=getRadio('q5yn');
-    if (!yn) { showErr('err_q5',true); return; } showErr('err_q5',false);
-    ipaqStack.push('iq5');
-    showIpaqQ(yn==='no' ? 'iq7' : 'iq6');
-  } else if (qNum===6) {
-    ipaqStack.push('iq6'); showIpaqQ('iq7');
-  } else if (qNum===7) {
-    // go to MBI
+    if(!yn){showErr('err_q5',true);return;}showErr('err_q5',false);
+    if(yn==='yes'){
+      const d=document.getElementById('q5_days').value;
+      if(!d){showErr('err_q5days',true);return;}showErr('err_q5days',false);
+    }
+    ipaqStack.push('iq5');showIpaqQ(yn==='no'?'iq7':'iq6');
+  } else if(qNum===6){
+    if(!validateTime('q6'))return;
+    ipaqStack.push('iq6');showIpaqQ('iq7');
+  } else if(qNum===7){
+    if(!validateTime('q7'))return;
     document.getElementById('sec-ipaq').classList.remove('active');
-    document.getElementById('sec-mbi').classList.add('active');
-    setProgress(50,'Step 4 of 6','Part 3 · Burnout (MBI)');
+    document.getElementById('sec-flourishing').classList.add('active');
+    setProgress(33,'Step 4 of 6','Part 3 · Flourishing Scale (FS)');
   }
 }
-function ipaqBack() {
-  if (ipaqStack.length===0) {
-    document.getElementById('sec-ipaq').classList.remove('active');
-    document.getElementById('sec-demo').classList.add('active');
-    setProgress(10,'Step 2 of 6','Part 1 · Demographics');
-    return;
-  }
+function ipaqBack(){
+  if(ipaqStack.length===0){navTo('sec-demo','sec-ipaq',10,'Step 2 of 6','Part 1 · Respondent Information');return;}
   showIpaqQ(ipaqStack.pop());
 }
 
-// ── MBI ───────────────────────────────────────────────────────────────────────
-function submitMBI() {
+// ── FLOURISHING SCALE ─────────────────────────────────────────────────────────
+function submitFlourishing(){
   let ok=true;
-  [...mbiAItems.map((_,i)=>'mbiA_'+i), ...mbiBItems.map((_,i)=>'mbiB_'+i), ...mbiCItems.map((_,i)=>'mbiC_'+i)].forEach(id => {
-    if (getMBIVal(id)===null) ok=false;
-  });
-  showErr('err_mbi',!ok);
-  if (!ok) return;
-  document.getElementById('sec-mbi').classList.remove('active');
-  document.getElementById('sec-mspss').classList.add('active');
-  setProgress(75,'Step 5 of 6','Part 4 · Social Support (MSPSS)');
+  for(let i=0;i<fsItems.length;i++){if(!getRadio('fs_'+i)){ok=false;break;}}
+  showErr('err_fs',!ok);
+  if(!ok)return;
+  document.getElementById('sec-flourishing').classList.remove('active');
+  document.getElementById('sec-mbi').classList.add('active');
+  setProgress(50,'Step 5 of 6','Part 4 · Burnout (MBI)');
 }
 
-// ── FINAL SUBMIT ─────────────────────────────────────────────────────────────
-function v(id){const e=document.getElementById(id);return e?(parseFloat(e.value)||0):0;}
-function chk(id){const e=document.getElementById(id);return e?e.checked:false;}
-function toMins(h,m){return v(h)*60+v(m);}
-function fmtMins(m){if(!m)return'None reported';const h=Math.floor(m/60),r=m%60;return h>0?`${h}h ${r}m/day`:`${r} min/day`;}
-
-function submitSurvey() {
+// ── MBI ───────────────────────────────────────────────────────────────────────
+function submitMBI(){
   let ok=true;
-  for(let i=0;i<12;i++){if(getMSPSSVal(i)===null){ok=false;break;}}
-  showErr('err_mspss',!ok);
-  if(!ok) return;
+  for(let i=0;i<mbiAItems.length;i++){if(!getRadio('mbiA_'+i)){ok=false;break;}}
+  showErr('err_mbi',!ok);
+  if(!ok)return;
+  document.getElementById('sec-mbi').classList.remove('active');
+  document.getElementById('sec-mspss').classList.add('active');
+  setProgress(67,'Step 5 of 6','Part 4 · Social Support (MSPSS)');
+}
 
-  // IPAQ calc
-  const q1no=getRadio('q1yn')==='no', q3no=getRadio('q3yn')==='no', q5no=getRadio('q5yn')==='no';
-  const vigD=q1no?0:v('q1_days'), vigM=q1no||chk('q2_dk')?0:toMins('q2h','q2m');
-  const modD=q3no?0:v('q3_days'), modM=q3no||chk('q4_dk')?0:toMins('q4h','q4m');
-  const wlkD=q5no?0:v('q5_days'), wlkM=q5no||chk('q6_dk')?0:toMins('q6h','q6m');
-  const sitM=chk('q7_dk')?null:toMins('q7h','q7m');
-  const vigMET=8.0*vigM*vigD, modMET=4.0*modM*modD, wlkMET=3.3*wlkM*wlkD;
-  const tot=Math.round(vigMET+modMET+wlkMET);
-  let lvl='Low',lvlCls='level-low';
-  if((vigD>=3&&vigM>=20)||(modD>=5&&modM>=30)||((wlkD+modD+vigD)>=5&&tot>=600)){lvl='Moderate';lvlCls='level-mod';}
-  if((vigD>=3&&vigMET>=1500)||((wlkD+modD+vigD)>=7&&tot>=3000)){lvl='High';lvlCls='level-high';}
+// ── GET LOCATION CITY ─────────────────────────────────────────────────────────
+function getLocCity(prefix) {
+  const val = getRadio(prefix);
+  if (!val) return '';
+  const regionKey = val.toLowerCase();
+  const cityInput = document.getElementById(`${prefix}_${regionKey}_city_val`);
+  return cityInput ? cityInput.value.trim() : '';
+}
 
-  // MBI calc
-  const sumA=mbiAItems.reduce((_,__,i)=>_+(getMBIVal('mbiA_'+i)||0),0);
-  const sumB=mbiBItems.reduce((_,__,i)=>_+(getMBIVal('mbiB_'+i)||0),0);
-  const sumC=mbiCItems.reduce((_,__,i)=>_+(getMBIVal('mbiC_'+i)||0),0);
-  function mbiLevel(sec,val){
-    if(sec==='A'){return val<=17?'Low':val<=29?'Moderate':'High';}
-    if(sec==='B'){return val<=5?'Low':val<=11?'Moderate':'High';}
-    return val<=33?'High':val<=39?'Moderate':'Low';
+// ── COLLECT ALL SURVEY DATA ───────────────────────────────────────────────────
+function collectSurveyData() {
+  // Helper to safely get number value
+  const getNum = (id) => { const el = document.getElementById(id); return el && el.value ? parseInt(el.value) : 0; };
+  const getDK = (id) => { const el = document.getElementById(id); return el ? el.checked : false; };
+  const getOther = (id) => { const el = document.getElementById(id); return el ? el.value.trim() : ''; };
+  
+  const data = {
+    // Consent
+    Consent_Name: document.getElementById('consent_name').value.trim(),
+    Consent_Date: document.getElementById('consent_date').value,
+    
+    // Demographics
+    Full_Name: document.getElementById('d_name').value.trim(),
+    Age: parseInt(document.getElementById('d_age').value) || 0,
+    Sex: getRadio('sex') || '',
+    Sex_Other: getRadio('sex') === 'Other' ? getOther('sex_other') : '',
+    Civil_Status: getRadio('civil') || '',
+    Civil_Status_Other: getRadio('civil') === 'Other' ? getOther('civil_other') : '',
+    Education: getRadio('edu') || '',
+    Education_Other: getRadio('edu') === 'Other' ? getOther('edu_other') : '',
+    Work_Arrangement: getRadio('work') || '',
+    Work_Arrangement_Other: getRadio('work') === 'Other' ? getOther('work_other') : '',
+    Work_Schedule: getRadio('wsched') || '',
+    Employment_Status: getRadio('emp') || '',
+    Employment_Status_Other: getRadio('emp') === 'Other' ? getOther('emp_other') : '',
+    Tenure: getRadio('tenure') || '',
+    Job_Position: getRadio('pos') || '',
+    Job_Position_Other: getRadio('pos') === 'Other' ? getOther('pos_other') : '',
+    Job_Type: getRadio('jobtype') || '',
+    Job_Type_Other: getRadio('jobtype') === 'Other' ? getOther('jobtype_other') : '',
+    Sector: getRadio('sector') || '',
+    Sector_Other: getRadio('sector') === 'Other' ? getOther('sector_other') : '',
+    Work_Location: getRadio('wloc') || '',
+    Work_Location_City: getLocCity('wloc'),
+    Residence_Location: getRadio('rloc') || '',
+    Residence_Location_City: getLocCity('rloc'),
+    Physical_Activity_Level: getRadio('palevel') || '',
+    
+    // IPAQ
+    IPAQ_Q1_Vigorous_Days: getRadio('q1yn') === 'yes' ? getNum('q1_days') : 0,
+    IPAQ_Q2_Vigorous_Hours: getRadio('q1yn') === 'yes' ? getNum('q2h') : 0,
+    IPAQ_Q2_Vigorous_Minutes: getRadio('q1yn') === 'yes' ? getNum('q2m') : 0,
+    IPAQ_Q2_DK: getRadio('q1yn') === 'yes' ? getDK('q2_dk') : false,
+    IPAQ_Q3_Moderate_Days: getRadio('q3yn') === 'yes' ? getNum('q3_days') : 0,
+    IPAQ_Q4_Moderate_Hours: getRadio('q3yn') === 'yes' ? getNum('q4h') : 0,
+    IPAQ_Q4_Moderate_Minutes: getRadio('q3yn') === 'yes' ? getNum('q4m') : 0,
+    IPAQ_Q4_DK: getRadio('q3yn') === 'yes' ? getDK('q4_dk') : false,
+    IPAQ_Q5_Walking_Days: getRadio('q5yn') === 'yes' ? getNum('q5_days') : 0,
+    IPAQ_Q6_Walking_Hours: getRadio('q5yn') === 'yes' ? getNum('q6h') : 0,
+    IPAQ_Q6_Walking_Minutes: getRadio('q5yn') === 'yes' ? getNum('q6m') : 0,
+    IPAQ_Q6_DK: getRadio('q5yn') === 'yes' ? getDK('q6_dk') : false,
+    IPAQ_Q7_Sitting_Hours: getNum('q7h'),
+    IPAQ_Q7_Sitting_Minutes: getNum('q7m'),
+    IPAQ_Q7_DK: getDK('q7_dk'),
+    
+    // Flourishing Scale
+    FS_Q1: parseInt(getRadio('fs_0')) || 0,
+    FS_Q2: parseInt(getRadio('fs_1')) || 0,
+    FS_Q3: parseInt(getRadio('fs_2')) || 0,
+    FS_Q4: parseInt(getRadio('fs_3')) || 0,
+    FS_Q5: parseInt(getRadio('fs_4')) || 0,
+    FS_Q6: parseInt(getRadio('fs_5')) || 0,
+    FS_Q7: parseInt(getRadio('fs_6')) || 0,
+    FS_Q8: parseInt(getRadio('fs_7')) || 0,
+    
+    // MBI
+    MBI_Q1: parseInt(getRadio('mbiA_0')) || 0,
+    MBI_Q2: parseInt(getRadio('mbiA_1')) || 0,
+    MBI_Q3: parseInt(getRadio('mbiA_2')) || 0,
+    MBI_Q4: parseInt(getRadio('mbiA_3')) || 0,
+    MBI_Q5: parseInt(getRadio('mbiA_4')) || 0,
+    MBI_Q6: parseInt(getRadio('mbiA_5')) || 0,
+    MBI_Q7: parseInt(getRadio('mbiA_6')) || 0,
+    
+    // MSPSS
+    MSPSS_Q1: parseInt(getRadio('mspss_0')) || 0,
+    MSPSS_Q2: parseInt(getRadio('mspss_1')) || 0,
+    MSPSS_Q3: parseInt(getRadio('mspss_2')) || 0,
+    MSPSS_Q4: parseInt(getRadio('mspss_3')) || 0,
+    MSPSS_Q5: parseInt(getRadio('mspss_4')) || 0,
+    MSPSS_Q6: parseInt(getRadio('mspss_5')) || 0,
+    MSPSS_Q7: parseInt(getRadio('mspss_6')) || 0,
+    MSPSS_Q8: parseInt(getRadio('mspss_7')) || 0,
+    MSPSS_Q9: parseInt(getRadio('mspss_8')) || 0,
+    MSPSS_Q10: parseInt(getRadio('mspss_9')) || 0,
+    MSPSS_Q11: parseInt(getRadio('mspss_10')) || 0,
+    MSPSS_Q12: parseInt(getRadio('mspss_11')) || 0
+  };
+  
+  return data;
+}
+
+// ── SEND TO AIRTABLE ──────────────────────────────────────────────────────────
+async function sendToAirtable(data) {
+  const { API_KEY, BASE_ID, TABLE_NAME } = AIRTABLE_CONFIG;
+  
+  // Validate config
+  if (API_KEY === 'YOUR_AIRTABLE_PERSONAL_ACCESS_TOKEN_HERE' || BASE_ID === 'YOUR_BASE_ID_HERE') {
+    console.warn('⚠️ Airtable not configured. Data logged to console instead.');
+    console.log('Survey Data:', JSON.stringify(data, null, 2));
+    return { success: false, error: 'Airtable not configured. Check console for data.' };
   }
 
-  // MSPSS calc
-  const mspss=Array.from({length:12},(_,i)=>getMSPSSVal(i)||0);
-  const soScore=((mspss[0]+mspss[1]+mspss[4]+mspss[9])/4).toFixed(2);
-  const famScore=((mspss[2]+mspss[3]+mspss[7]+mspss[10])/4).toFixed(2);
-  const friScore=((mspss[5]+mspss[6]+mspss[8]+mspss[11])/4).toFixed(2);
-  const totMSPSS=(mspss.reduce((a,b)=>a+b,0)/12).toFixed(2);
-  function mspssLevel(s){return s<3?'Low':s<=5?'Moderate':'High';}
+  const url = `https://api.airtable.com/v0/${BASE_ID}/${encodeURIComponent(TABLE_NAME)}`;
+  
+  // Convert data to Airtable format
+  const fields = {};
+  for (const [key, value] of Object.entries(data)) {
+    // Airtable field names cannot contain spaces or special chars
+    // Ensure values are properly typed
+    if (typeof value === 'boolean') {
+      fields[key] = value;
+    } else if (typeof value === 'number') {
+      fields[key] = value;
+    } else {
+      fields[key] = value || ''; // Empty strings for null/undefined
+    }
+  }
 
-  // Fill results
-  const name=document.getElementById('d_name').value||'Participant';
-  document.getElementById('r_name').textContent=name;
-  document.getElementById('r_age').textContent=document.getElementById('d_age').value||'—';
-  document.getElementById('r_sex').textContent=getRadio('sex')||'—';
-  document.getElementById('r_edu').textContent=getRadio('edu')==='Other'?(document.getElementById('edu_other').value||'Other'):getRadio('edu')||'—';
-  document.getElementById('r_work').textContent=getRadio('work')==='Other'?(document.getElementById('work_other').value||'Other'):getRadio('work')||'—';
-  document.getElementById('r_emp').textContent=getRadio('emp')==='Other'?(document.getElementById('emp_other').value||'Other'):getRadio('emp')||'—';
-  document.getElementById('r_tenure').textContent=getRadio('tenure')||'—';
-  document.getElementById('r_pos').textContent=getRadio('pos')==='Other'?(document.getElementById('pos_other').value||'Other'):getRadio('pos')||'—';
-  document.getElementById('r_jobtype').textContent=getRadio('jobtype')==='Other'?(document.getElementById('jobtype_other').value||'Other'):getRadio('jobtype')||'—';
-  document.getElementById('r_sector').textContent=getRadio('sector')==='Other'?(document.getElementById('sector_other').value||'Other'):getRadio('sector')||'—';
-  document.getElementById('r_loc').textContent=getRadio('loc')==='Other'?(document.getElementById('loc_other').value||'Other'):getRadio('loc')||'—';
-  document.getElementById('r_capable').textContent=getRadio('capable')||'—';
-  document.getElementById('r_met').textContent=tot.toLocaleString();
-  document.getElementById('r_actlevel').innerHTML=`<span class="level-badge ${lvlCls}">Activity Level: ${lvl}</span>`;
-  document.getElementById('r_vig').textContent=vigD>0?`${vigD} days · ${fmtMins(vigM)}`:'None reported';
-  document.getElementById('r_mod').textContent=modD>0?`${modD} days · ${fmtMins(modM)}`:'None reported';
-  document.getElementById('r_walk').textContent=wlkD>0?`${wlkD} days · ${fmtMins(wlkM)}`:'None reported';
-  document.getElementById('r_sit').textContent=sitM!==null?fmtMins(sitM):'Not reported';
+  try {
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${API_KEY}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        records: [
+          { fields: fields }
+        ]
+      })
+    });
 
-  function bl(val,lbl,sec){const l=mbiLevel(sec,val);const cls=l==='Low'?'badge-low':l==='Moderate'?'badge-mod':'badge-high';return `${val} <span class="badge ${cls}">${l}</span>`;}
-  document.getElementById('r_mbiA').innerHTML=bl(sumA,'',  'A');
-  document.getElementById('r_mbiB').innerHTML=bl(sumB,'','B');
-  document.getElementById('r_mbiC').innerHTML=bl(sumC,'','C');
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(errorData.error?.message || `HTTP error ${response.status}`);
+    }
 
-  function sl(s){const l=mspssLevel(parseFloat(s));const cls=l==='Low'?'badge-high':l==='Moderate'?'badge-mod':'badge-low';return `${s} <span class="badge ${cls}">${l} Support</span>`;}
-  document.getElementById('r_mspss_so').innerHTML=sl(soScore);
-  document.getElementById('r_mspss_fam').innerHTML=sl(famScore);
-  document.getElementById('r_mspss_fri').innerHTML=sl(friScore);
-  document.getElementById('r_mspss_tot').innerHTML=sl(totMSPSS);
+    const result = await response.json();
+    console.log('✅ Successfully saved to Airtable:', result);
+    return { success: true, data: result };
+  } catch (error) {
+    console.error('❌ Error sending to Airtable:', error.message);
+    return { success: false, error: error.message };
+  }
+}
 
+// ── SUBMIT ────────────────────────────────────────────────────────────────────
+async function submitSurvey(){
+  let ok=true;
+  for(let i=0;i<mspssItems.length;i++){if(!getRadio('mspss_'+i)){ok=false;break;}}
+  showErr('err_mspss',!ok);
+  if(!ok)return;
+  
+  // Collect all data
+  const surveyData = collectSurveyData();
+  
+  // Show loading overlay
+  const loadingOverlay = document.getElementById('loadingOverlay');
+  loadingOverlay.classList.add('active');
+  
+  // Send to Airtable
+  const result = await sendToAirtable(surveyData);
+  
+  // Hide loading overlay
+  loadingOverlay.classList.remove('active');
+  
+  // Show thank you panel regardless of Airtable result
+  // (data is logged to console even if Airtable fails)
   document.getElementById('surveyBody').style.display='none';
-  document.getElementById('resultsPanel').style.display='block';
-  document.getElementById('hSub').textContent='Results Summary';
+  document.getElementById('thankyouPanel').style.display='block';
+  document.getElementById('hSub').textContent='Thank You';
   document.getElementById('progBar').style.width='100%';
   document.getElementById('progLbl').textContent='Completed';
   window.scrollTo(0,0);
+  
+  // If Airtable failed, show an alert but still show thank you
+  if (!result.success && AIRTABLE_CONFIG.API_KEY !== 'YOUR_AIRTABLE_PERSONAL_ACCESS_TOKEN_HERE') {
+    alert('Note: There was an issue saving to Airtable. Your responses have been logged to the console. Error: ' + result.error);
+  }
 }
 
 // ── RESTART ───────────────────────────────────────────────────────────────────
 function restart(){
   document.querySelectorAll('input[type=number],input[type=text],input[type=date]').forEach(i=>{i.value='';i.disabled=false;});
   document.querySelectorAll('input[type=radio],input[type=checkbox]').forEach(i=>i.checked=false);
-  document.querySelectorAll('.radio-opt').forEach(el=>el.classList.remove('selected'));
-  document.querySelectorAll('.mbi-btn,.likert-btn').forEach(el=>el.classList.remove('selected'));
-  document.querySelectorAll('.mbi-item,.likert-item').forEach(el=>delete el.dataset.val);
-  document.querySelectorAll('.err').forEach(el=>el.style.display='none');
-  document.querySelectorAll('.other-wrap').forEach(el=>el.style.display='none');
+  document.querySelectorAll('.radio-opt,.loc-opt').forEach(el=>el.classList.remove('selected'));
+  document.querySelectorAll('.err,.req-note').forEach(el=>el.style.display='none');
+  document.querySelectorAll('.other-wrap,.loc-city').forEach(el=>el.style.display='none');
   document.querySelectorAll('.ipaq-q').forEach(el=>el.style.display='none');
   document.getElementById('iq1').style.display='block';
   document.querySelectorAll('#q1_detail,#q3_detail,#q5_detail').forEach(el=>el.style.display='none');
   ['q2','q4','q6','q7'].forEach(q=>{const w=document.getElementById(q+'dk_wrap');if(w)w.classList.remove('disabled');});
   document.getElementById('surveyBody').style.display='block';
-  document.getElementById('resultsPanel').style.display='none';
+  document.getElementById('thankyouPanel').style.display='none';
   document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
   document.getElementById('sec-intro').classList.add('active');
   ipaqStack=[];
