@@ -336,7 +336,7 @@ body{font-family:'Segoe UI',sans-serif;background:#f0f4f8;min-height:100vh;displ
             <div class="loc-city" id="wloc_mindanao_city"><input type="text" id="wloc_mindanao_city_val" placeholder="Specify City…"></div>
           </div>
         </div>
-        <div class="err" id="err_wloc">Please select an option.</div>
+        <div class="err" id="err_wloc">Please select an option and specify city if applicable.</div>
       </div>
 
       <!-- Region and City of Residence -->
@@ -360,7 +360,7 @@ body{font-family:'Segoe UI',sans-serif;background:#f0f4f8;min-height:100vh;displ
             <div class="loc-city" id="rloc_mindanao_city"><input type="text" id="rloc_mindanao_city_val" placeholder="Specify City…"></div>
           </div>
         </div>
-        <div class="err" id="err_rloc">Please select an option.</div>
+        <div class="err" id="err_rloc">Please select an option and specify city if applicable.</div>
       </div>
 
       <!-- Physical Activity Level -->
@@ -396,7 +396,7 @@ body{font-family:'Segoe UI',sans-serif;background:#f0f4f8;min-height:100vh;displ
         <div id="q1_detail" style="display:none;margin-top:4px">
           <label style="font-size:0.83rem;color:#475569;display:block;margin-bottom:6px">Number of days:</label>
           <div class="number-input"><input type="number" id="q1_days" min="1" max="7" placeholder="0"><span>days per week</span></div>
-          <div class="err" id="err_q1days">Please enter the number of days.</div>
+          <div class="err" id="err_q1days">Please enter the number of days (1-7).</div>
         </div>
         <div class="err" id="err_q1">Please select an option.</div>
         <div class="nav"><button class="btn btn-secondary" onclick="ipaqBack()">← Back</button><button class="btn btn-primary" onclick="ipaqNext(1)">Next →</button></div>
@@ -424,7 +424,7 @@ body{font-family:'Segoe UI',sans-serif;background:#f0f4f8;min-height:100vh;displ
         <div id="q3_detail" style="display:none;margin-top:4px">
           <label style="font-size:0.83rem;color:#475569;display:block;margin-bottom:6px">Number of days:</label>
           <div class="number-input"><input type="number" id="q3_days" min="1" max="7" placeholder="0"><span>days per week</span></div>
-          <div class="err" id="err_q3days">Please enter the number of days.</div>
+          <div class="err" id="err_q3days">Please enter the number of days (1-7).</div>
         </div>
         <div class="err" id="err_q3">Please select an option.</div>
         <div class="nav"><button class="btn btn-secondary" onclick="ipaqBack()">← Back</button><button class="btn btn-primary" onclick="ipaqNext(3)">Next →</button></div>
@@ -453,7 +453,7 @@ body{font-family:'Segoe UI',sans-serif;background:#f0f4f8;min-height:100vh;displ
         <div id="q5_detail" style="display:none;margin-top:4px">
           <label style="font-size:0.83rem;color:#475569;display:block;margin-bottom:6px">Number of days:</label>
           <div class="number-input"><input type="number" id="q5_days" min="1" max="7" placeholder="0"><span>days per week</span></div>
-          <div class="err" id="err_q5days">Please enter the number of days.</div>
+          <div class="err" id="err_q5days">Please enter the number of days (1-7).</div>
         </div>
         <div class="err" id="err_q5">Please select an option.</div>
         <div class="nav"><button class="btn btn-secondary" onclick="ipaqBack()">← Back</button><button class="btn btn-primary" onclick="ipaqNext(5)">Next →</button></div>
@@ -507,7 +507,7 @@ body{font-family:'Segoe UI',sans-serif;background:#f0f4f8;min-height:100vh;displ
         </table>
       </div>
       <div class="fs-legend"><span>← Strongly Disagree</span><span>Neither</span><span>Strongly Agree →</span></div>
-      <div class="err" id="err_fs" style="margin-top:10px">Please answer all statements before continuing.</div>
+      <div class="err" id="err_fs" style="margin-top:10px">Please answer all 8 statements before continuing.</div>
       <div class="nav">
         <button class="btn btn-secondary" onclick="navTo('sec-ipaq','sec-flourishing',33,'Step 3 of 6','Part 2 · Physical Activity (IPAQ-SF)')">← Back</button>
         <button class="btn btn-primary" onclick="submitFlourishing()">Next: Burnout →</button>
@@ -535,7 +535,7 @@ body{font-family:'Segoe UI',sans-serif;background:#f0f4f8;min-height:100vh;displ
           <tbody id="mbi_tbody"></tbody>
         </table>
       </div>
-      <div class="err" id="err_mbi" style="margin-top:10px">Please answer all statements before continuing.</div>
+      <div class="err" id="err_mbi" style="margin-top:10px">Please answer all 7 statements before continuing.</div>
       <div class="nav">
         <button class="btn btn-secondary" onclick="navTo('sec-flourishing','sec-mbi',50,'Step 4 of 6','Part 3 · Flourishing Scale (FS)')">← Back</button>
         <button class="btn btn-primary" onclick="submitMBI()">Next: Social Support →</button>
@@ -564,7 +564,7 @@ body{font-family:'Segoe UI',sans-serif;background:#f0f4f8;min-height:100vh;displ
         </table>
       </div>
       <div class="scale-legend"><span>← Disagree</span><span>Neutral</span><span>Agree →</span></div>
-      <div class="err" id="err_mspss" style="margin-top:10px">Please answer all statements before submitting.</div>
+      <div class="err" id="err_mspss" style="margin-top:10px">Please answer all 12 statements before submitting.</div>
       <div class="nav">
         <button class="btn btn-secondary" onclick="navTo('sec-mbi','sec-mspss',67,'Step 5 of 6','Part 4 · Burnout (MBI)')">← Back</button>
         <button class="btn btn-primary" onclick="submitSurvey()">Submit Survey →</button>
@@ -644,25 +644,40 @@ const mspssItems = [
 function buildMBI() {
   const tb = document.getElementById('mbi_tbody');
   mbiAItems.forEach((q, i) => {
-    let cells = '';
-    for (let v = 0; v <= 6; v++) cells += `<td><input class="mbi-radio" type="radio" name="mbiA_${i}" value="${v}"></td>`;
-    tb.innerHTML += `<tr><td class="q-cell">${i+1}. ${q}</td>${cells}</tr>`;
+    let row = tb.insertRow();
+    let cellQ = row.insertCell(0);
+    cellQ.className = 'q-cell';
+    cellQ.innerHTML = (i+1) + '. ' + q;
+    for (let v = 0; v <= 6; v++) {
+      let cell = row.insertCell(-1);
+      cell.innerHTML = '<input class="mbi-radio" type="radio" name="mbiA_' + i + '" value="' + v + '">';
+    }
   });
 }
 function buildMSPSS() {
   const tb = document.getElementById('mspss_tbody');
   mspssItems.forEach((q, i) => {
-    let cells = '';
-    for (let v = 1; v <= 7; v++) cells += `<td><input class="mspss-radio" type="radio" name="mspss_${i}" value="${v}"></td>`;
-    tb.innerHTML += `<tr><td class="q-cell">${i+1}. ${q}</td>${cells}</tr>`;
+    let row = tb.insertRow();
+    let cellQ = row.insertCell(0);
+    cellQ.className = 'q-cell';
+    cellQ.innerHTML = (i+1) + '. ' + q;
+    for (let v = 1; v <= 7; v++) {
+      let cell = row.insertCell(-1);
+      cell.innerHTML = '<input class="mspss-radio" type="radio" name="mspss_' + i + '" value="' + v + '">';
+    }
   });
 }
 function buildFS() {
   const tb = document.getElementById('fs_tbody');
   fsItems.forEach((q, i) => {
-    let cells = '';
-    for (let v = 1; v <= 7; v++) cells += `<td><input class="fs-radio" type="radio" name="fs_${i}" value="${v}"></td>`;
-    tb.innerHTML += `<tr><td class="q-cell">${i+1}. ${q}</td>${cells}</tr>`;
+    let row = tb.insertRow();
+    let cellQ = row.insertCell(0);
+    cellQ.className = 'q-cell';
+    cellQ.innerHTML = (i+1) + '. ' + q;
+    for (let v = 1; v <= 7; v++) {
+      let cell = row.insertCell(-1);
+      cell.innerHTML = '<input class="fs-radio" type="radio" name="fs_' + i + '" value="' + v + '">';
+    }
   });
 }
 buildMBI(); buildMSPSS(); buildFS();
@@ -737,6 +752,18 @@ function navTo(show,hide,pct,lbl,sub){
   setProgress(pct,lbl,sub);
 }
 
+// ── VALIDATE LOCATION WITH CITY ──────────────────────────────────────────────
+function validateLocationWithCity(prefix) {
+  const locVal = getRadio(prefix);
+  if (!locVal) return false;
+  const regionKey = locVal.toLowerCase();
+  const cityInput = document.getElementById(`${prefix}_${regionKey}_city_val`);
+  if (!cityInput) return true;
+  const cityVal = cityInput.value.trim();
+  if (!cityVal) return false;
+  return true;
+}
+
 // ── CONSENT ───────────────────────────────────────────────────────────────────
 function submitConsent(){
   const n=document.getElementById('consent_name').value.trim(), d=document.getElementById('consent_date').value;
@@ -754,12 +781,41 @@ function submitDemo(){
   let ok=true;
   if(!document.getElementById('d_name').value.trim()){showErr('err_dname',true);ok=false;}else showErr('err_dname',false);
   if(!document.getElementById('d_age').value){showErr('err_age',true);ok=false;}else showErr('err_age',false);
-  ['sex','civil','edu','work','wsched','emp','tenure','pos','jobtype','sector','palevel'].forEach(n=>{
-    if(!getRadio(n)){showErr('err_'+n,true);ok=false;}else showErr('err_'+n,false);
-  });
-  // location fields
-  if(!getRadio('wloc')){showErr('err_wloc',true);ok=false;}else showErr('err_wloc',false);
-  if(!getRadio('rloc')){showErr('err_rloc',true);ok=false;}else showErr('err_rloc',false);
+  
+  const sexVal = getRadio('sex');
+  if(!sexVal){showErr('err_sex',true);ok=false;}else if(sexVal==='Other' && !document.getElementById('sex_other').value.trim()){showErr('err_sex',true);ok=false;}else showErr('err_sex',false);
+  
+  const civilVal = getRadio('civil');
+  if(!civilVal){showErr('err_civil',true);ok=false;}else if(civilVal==='Other' && !document.getElementById('civil_other').value.trim()){showErr('err_civil',true);ok=false;}else showErr('err_civil',false);
+  
+  const eduVal = getRadio('edu');
+  if(!eduVal){showErr('err_edu',true);ok=false;}else if(eduVal==='Other' && !document.getElementById('edu_other').value.trim()){showErr('err_edu',true);ok=false;}else showErr('err_edu',false);
+  
+  const workVal = getRadio('work');
+  if(!workVal){showErr('err_work',true);ok=false;}else if(workVal==='Other' && !document.getElementById('work_other').value.trim()){showErr('err_work',true);ok=false;}else showErr('err_work',false);
+  
+  if(!getRadio('wsched')){showErr('err_wsched',true);ok=false;}else showErr('err_wsched',false);
+  
+  const empVal = getRadio('emp');
+  if(!empVal){showErr('err_emp',true);ok=false;}else if(empVal==='Other' && !document.getElementById('emp_other').value.trim()){showErr('err_emp',true);ok=false;}else showErr('err_emp',false);
+  
+  if(!getRadio('tenure')){showErr('err_tenure',true);ok=false;}else showErr('err_tenure',false);
+  
+  const posVal = getRadio('pos');
+  if(!posVal){showErr('err_pos',true);ok=false;}else if(posVal==='Other' && !document.getElementById('pos_other').value.trim()){showErr('err_pos',true);ok=false;}else showErr('err_pos',false);
+  
+  const jobtypeVal = getRadio('jobtype');
+  if(!jobtypeVal){showErr('err_jobtype',true);ok=false;}else if(jobtypeVal==='Other' && !document.getElementById('jobtype_other').value.trim()){showErr('err_jobtype',true);ok=false;}else showErr('err_jobtype',false);
+  
+  const sectorVal = getRadio('sector');
+  if(!sectorVal){showErr('err_sector',true);ok=false;}else if(sectorVal==='Other' && !document.getElementById('sector_other').value.trim()){showErr('err_sector',true);ok=false;}else showErr('err_sector',false);
+  
+  if(!getRadio('wloc')){showErr('err_wloc',true);ok=false;}else if(!validateLocationWithCity('wloc')){showErr('err_wloc',true);ok=false;}else showErr('err_wloc',false);
+  
+  if(!getRadio('rloc')){showErr('err_rloc',true);ok=false;}else if(!validateLocationWithCity('rloc')){showErr('err_rloc',true);ok=false;}else showErr('err_rloc',false);
+  
+  if(!getRadio('palevel')){showErr('err_palevel',true);ok=false;}else showErr('err_palevel',false);
+  
   if(!ok)return;
   document.getElementById('sec-demo').classList.remove('active');
   document.getElementById('sec-ipaq').classList.add('active');
@@ -779,7 +835,7 @@ function ipaqNext(qNum){
     if(!yn){showErr('err_q1',true);return;}showErr('err_q1',false);
     if(yn==='yes'){
       const d=document.getElementById('q1_days').value;
-      if(!d){showErr('err_q1days',true);return;}showErr('err_q1days',false);
+      if(!d || d<1 || d>7){showErr('err_q1days',true);return;}showErr('err_q1days',false);
     }
     ipaqStack.push('iq1');showIpaqQ(yn==='no'?'iq3':'iq2');
   } else if(qNum===2){
@@ -790,7 +846,7 @@ function ipaqNext(qNum){
     if(!yn){showErr('err_q3',true);return;}showErr('err_q3',false);
     if(yn==='yes'){
       const d=document.getElementById('q3_days').value;
-      if(!d){showErr('err_q3days',true);return;}showErr('err_q3days',false);
+      if(!d || d<1 || d>7){showErr('err_q3days',true);return;}showErr('err_q3days',false);
     }
     ipaqStack.push('iq3');showIpaqQ(yn==='no'?'iq5':'iq4');
   } else if(qNum===4){
@@ -801,7 +857,7 @@ function ipaqNext(qNum){
     if(!yn){showErr('err_q5',true);return;}showErr('err_q5',false);
     if(yn==='yes'){
       const d=document.getElementById('q5_days').value;
-      if(!d){showErr('err_q5days',true);return;}showErr('err_q5days',false);
+      if(!d || d<1 || d>7){showErr('err_q5days',true);return;}showErr('err_q5days',false);
     }
     ipaqStack.push('iq5');showIpaqQ(yn==='no'?'iq7':'iq6');
   } else if(qNum===6){
