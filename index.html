@@ -369,7 +369,24 @@ body{font-family:'Segoe UI',sans-serif;background:#f0f4f8;min-height:100vh;displ
         <div class="err" id="err_rloc">Please select an option and specify city if applicable.</div>
       </div>
 
-      <!-- ===== IPAQ ===== -->
+      <!-- Physical Activity Level -->
+      <div class="field">
+        <label>15. Physical Activity Level <span class="req">*</span></label>
+        <div class="radio-group">
+          <label class="radio-opt"><input type="radio" name="palevel" value="Sedentary"> Sedentary <span style="font-weight:400;color:#64748b">(little or no physical activity)</span></label>
+          <label class="radio-opt"><input type="radio" name="palevel" value="Moderately active"> Moderately active <span style="font-weight:400;color:#64748b">(exercise 1–3 times per week)</span></label>
+          <label class="radio-opt"><input type="radio" name="palevel" value="Highly active"> Highly active <span style="font-weight:400;color:#64748b">(exercise 4+ times per week)</span></label>
+        </div>
+        <div class="err" id="err_palevel">Please select an option.</div>
+      </div>
+
+      <div class="nav">
+        <button class="btn btn-secondary" onclick="navTo('sec-intro','sec-demo',0,'Step 1 of 5','Introduction &amp; Informed Consent')">← Back</button>
+        <button class="btn btn-primary" onclick="submitDemo()">Next: Physical Activity →</button>
+      </div>
+    </div>
+
+    <!-- ===== IPAQ ===== -->
     <div class="section" id="sec-ipaq">
       <div class="sec-title">Part 2 · International Physical Activity Questionnaire (IPAQ-SF)</div>
       <div class="intro-box">We are interested in finding out about the kinds of physical activities that people do as part of their everyday lives. The questions will ask you about the time you spent being physically active in the <strong>last 7 days</strong>. Please answer each question even if you do not consider yourself to be an active person. Please think about the activities you do at work, as part of your house and yard work, to get from place to place, and in your spare time for recreation, exercise or sport.</div>
