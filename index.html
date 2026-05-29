@@ -124,6 +124,12 @@ body{font-family:'Segoe UI',sans-serif;background:#f0f4f8;min-height:100vh;displ
 .spinner{width:40px;height:40px;border:4px solid #e2e8f0;border-top-color:#2563eb;border-radius:50%;animation:spin 0.8s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
 .loading-text{margin-top:12px;font-size:0.9rem;color:#475569;font-weight:500}
+
+/* No option checkbox styling */
+.no-option{display:flex;align-items:center;gap:10px;margin-top:12px;padding:10px 14px;background:#f8fafc;border-radius:8px;cursor:pointer;border:2px solid transparent;transition:border 0.2s,background 0.2s}
+.no-option:hover{background:#eff6ff;border-color:#bfdbfe}
+.no-option input{accent-color:#2563eb;width:16px;height:16px}
+.no-option span{font-size:0.85rem;color:#475569}
 </style>
 </head>
 <body>
@@ -391,9 +397,10 @@ body{font-family:'Segoe UI',sans-serif;background:#f0f4f8;min-height:100vh;displ
         <div class="q-text">1. During the last 7 days, on how many days did you do vigorous physical activities like heavy lifting, digging, aerobics, or fast bicycling?</div>
         <div id="q1_detail" style="margin-top:4px">
           <label style="font-size:0.83rem;color:#475569;display:block;margin-bottom:6px">Number of days:</label>
-          <div class="number-input"><input type="number" id="q1_days" min="0" max="7" placeholder="0"><span>days per week (0 if none)</span></div>
+          <div class="number-input"><input type="number" id="q1_days" min="0" max="7" placeholder="0" disabled><span>days per week</span></div>
           <div class="err" id="err_q1days">Please enter the number of days (0-7).</div>
         </div>
+        <label class="no-option" id="q1_no_wrap"><input type="checkbox" id="q1_no" onchange="toggleNoOption(1)"> <span>No, I did not do any vigorous physical activities in the last 7 days</span></label>
         <div class="nav"><button class="btn btn-secondary" onclick="ipaqBack()">← Back</button><button class="btn btn-primary" onclick="ipaqNext(1)">Next →</button></div>
       </div>
 
@@ -414,9 +421,10 @@ body{font-family:'Segoe UI',sans-serif;background:#f0f4f8;min-height:100vh;displ
         <div class="q-text">3. During the last 7 days, on how many days did you do moderate physical activities like carrying light loads, bicycling at a regular pace, or doubles tennis? Do not include walking.</div>
         <div id="q3_detail" style="margin-top:4px">
           <label style="font-size:0.83rem;color:#475569;display:block;margin-bottom:6px">Number of days:</label>
-          <div class="number-input"><input type="number" id="q3_days" min="0" max="7" placeholder="0"><span>days per week (0 if none)</span></div>
+          <div class="number-input"><input type="number" id="q3_days" min="0" max="7" placeholder="0" disabled><span>days per week</span></div>
           <div class="err" id="err_q3days">Please enter the number of days (0-7).</div>
         </div>
+        <label class="no-option" id="q3_no_wrap"><input type="checkbox" id="q3_no" onchange="toggleNoOption(3)"> <span>No, I did not do any moderate physical activities in the last 7 days</span></label>
         <div class="nav"><button class="btn btn-secondary" onclick="ipaqBack()">← Back</button><button class="btn btn-primary" onclick="ipaqNext(3)">Next →</button></div>
       </div>
 
@@ -438,9 +446,10 @@ body{font-family:'Segoe UI',sans-serif;background:#f0f4f8;min-height:100vh;displ
         <div class="q-text">5. During the last 7 days, on how many days did you walk for at least 10 minutes at a time?</div>
         <div id="q5_detail" style="margin-top:4px">
           <label style="font-size:0.83rem;color:#475569;display:block;margin-bottom:6px">Number of days:</label>
-          <div class="number-input"><input type="number" id="q5_days" min="0" max="7" placeholder="0"><span>days per week (0 if none)</span></div>
+          <div class="number-input"><input type="number" id="q5_days" min="0" max="7" placeholder="0" disabled><span>days per week</span></div>
           <div class="err" id="err_q5days">Please enter the number of days (0-7).</div>
         </div>
+        <label class="no-option" id="q5_no_wrap"><input type="checkbox" id="q5_no" onchange="toggleNoOption(5)"> <span>No, I did not walk for at least 10 minutes at a time in the last 7 days</span></label>
         <div class="nav"><button class="btn btn-secondary" onclick="ipaqBack()">← Back</button><button class="btn btn-primary" onclick="ipaqNext(5)">Next →</button></div>
       </div>
 
@@ -486,10 +495,10 @@ body{font-family:'Segoe UI',sans-serif;background:#f0f4f8;min-height:100vh;displ
               <th>5<br><span style="font-weight:400">Slightly<br>Agree</span></th>
               <th>6<br><span style="font-weight:400">Agree</span></th>
               <th>7<br><span style="font-weight:400">Strongly<br>Agree</span></th>
-            </tr>
+             </tr>
           </thead>
           <tbody id="fs_tbody"></tbody>
-        </table>
+         </table>
       </div>
       <div class="fs-legend"><span>← Strongly Disagree</span><span>Neither</span><span>Strongly Agree →</span></div>
       <div class="err" id="err_fs" style="margin-top:10px">Please answer all 8 statements before continuing.</div>
@@ -515,10 +524,10 @@ body{font-family:'Segoe UI',sans-serif;background:#f0f4f8;min-height:100vh;displ
               <th>4<br><span style="font-weight:400">Once a Week</span></th>
               <th>5<br><span style="font-weight:400">A Few Times per Week</span></th>
               <th>6<br><span style="font-weight:400">Every Day</span></th>
-            </tr>
+             </tr>
           </thead>
           <tbody id="mbi_tbody"></tbody>
-        </table>
+         </table>
       </div>
       <div class="err" id="err_mbi" style="margin-top:10px">Please answer all 7 statements before continuing.</div>
       <div class="nav">
@@ -543,10 +552,10 @@ body{font-family:'Segoe UI',sans-serif;background:#f0f4f8;min-height:100vh;displ
               <th><span class="num">5</span>Mildly Agree</th>
               <th><span class="num">6</span>Strongly Agree</th>
               <th><span class="num">7</span>Very Strongly Agree</th>
-            </tr>
+             </tr>
           </thead>
           <tbody id="mspss_tbody"></tbody>
-        </table>
+         </table>
       </div>
       <div class="scale-legend"><span>← Disagree</span><span>Neutral</span><span>Agree →</span></div>
       <div class="err" id="err_mspss" style="margin-top:10px">Please answer all 12 statements before submitting.</div>
@@ -679,6 +688,23 @@ function handleLocChange(prefix) {
   });
 }
 
+// ── NO OPTION TOGGLE FOR IPAQ Q1, Q3, Q5 ─────────────────────────────────────
+function toggleNoOption(qNum) {
+  const noCheckbox = document.getElementById(`q${qNum}_no`);
+  const daysInput = document.getElementById(`q${qNum}_days`);
+  const errDiv = document.getElementById(`err_q${qNum}days`);
+  
+  if (noCheckbox.checked) {
+    daysInput.value = 0;
+    daysInput.disabled = true;
+    if (errDiv) errDiv.style.display = 'none';
+  } else {
+    daysInput.disabled = false;
+    daysInput.value = '';
+    if (errDiv) errDiv.style.display = 'none';
+  }
+}
+
 // ── DK / TIME ─────────────────────────────────────────────────────────────────
 function syncDK(q) {
   const h=document.getElementById(q+'h'), m=document.getElementById(q+'m'), wrap=document.getElementById(q+'dk_wrap');
@@ -797,27 +823,74 @@ function showIpaqQ(id){document.querySelectorAll('.ipaq-q').forEach(el=>el.style
 
 function ipaqNext(qNum){
   if(qNum===1){
-    const d=document.getElementById('q1_days').value;
-    const daysVal = parseInt(d);
+    const daysInput = document.getElementById('q1_days');
+    const noCheckbox = document.getElementById('q1_no');
+    let daysVal;
+    
+    if (noCheckbox.checked) {
+      daysVal = 0;
+    } else {
+      daysVal = parseInt(daysInput.value);
+    }
+    
     if(isNaN(daysVal) || daysVal<0 || daysVal>7){showErr('err_q1days',true);return;}showErr('err_q1days',false);
-    ipaqStack.push('iq1');
-    showIpaqQ('iq2');
+    
+    // If days = 0, skip Q2 and go to Q3
+    if(daysVal === 0){
+      ipaqStack.push('iq1');
+      showIpaqQ('iq3');
+    } else {
+      ipaqStack.push('iq1');
+      showIpaqQ('iq2');
+    }
   } else if(qNum===2){
     if(!validateTime('q2'))return;
     ipaqStack.push('iq2');showIpaqQ('iq3');
   } else if(qNum===3){
-    const d=document.getElementById('q3_days').value;
-    const daysVal = parseInt(d);
+    const daysInput = document.getElementById('q3_days');
+    const noCheckbox = document.getElementById('q3_no');
+    let daysVal;
+    
+    if (noCheckbox.checked) {
+      daysVal = 0;
+    } else {
+      daysVal = parseInt(daysInput.value);
+    }
+    
     if(isNaN(daysVal) || daysVal<0 || daysVal>7){showErr('err_q3days',true);return;}showErr('err_q3days',false);
-    ipaqStack.push('iq3');showIpaqQ('iq4');
+    
+    // If days = 0, skip Q4 and go to Q5
+    if(daysVal === 0){
+      ipaqStack.push('iq3');
+      showIpaqQ('iq5');
+    } else {
+      ipaqStack.push('iq3');
+      showIpaqQ('iq4');
+    }
   } else if(qNum===4){
     if(!validateTime('q4'))return;
     ipaqStack.push('iq4');showIpaqQ('iq5');
   } else if(qNum===5){
-    const d=document.getElementById('q5_days').value;
-    const daysVal = parseInt(d);
+    const daysInput = document.getElementById('q5_days');
+    const noCheckbox = document.getElementById('q5_no');
+    let daysVal;
+    
+    if (noCheckbox.checked) {
+      daysVal = 0;
+    } else {
+      daysVal = parseInt(daysInput.value);
+    }
+    
     if(isNaN(daysVal) || daysVal<0 || daysVal>7){showErr('err_q5days',true);return;}showErr('err_q5days',false);
-    ipaqStack.push('iq5');showIpaqQ('iq6');
+    
+    // If days = 0, skip Q6 and go to Q7
+    if(daysVal === 0){
+      ipaqStack.push('iq5');
+      showIpaqQ('iq7');
+    } else {
+      ipaqStack.push('iq5');
+      showIpaqQ('iq6');
+    }
   } else if(qNum===6){
     if(!validateTime('q6'))return;
     ipaqStack.push('iq6');showIpaqQ('iq7');
@@ -864,7 +937,7 @@ function getLocCity(prefix) {
   return cityInput ? cityInput.value.trim() : '';
 }
 
-// ── COLLECT ALL SURVEY DATA (same structure, now handling 0 days properly) ──
+// ── COLLECT ALL SURVEY DATA ──────────────────────────────────────────────────
 function collectSurveyData() {
   const getNum = (id) => { const el = document.getElementById(id); return el && el.value ? parseInt(el.value) : 0; };
   const getDK = (id) => { const el = document.getElementById(id); return el ? el.checked : false; };
@@ -944,7 +1017,7 @@ function collectSurveyData() {
   return data;
 }
 
-// ── SEND TO AIRTABLE (unchanged) ──────────────────────────────────────────────
+// ── SEND TO AIRTABLE ──────────────────────────────────────────────────────────
 async function sendToAirtable(data) {
   const { API_KEY, BASE_ID, TABLE_NAME } = AIRTABLE_CONFIG;
   if (API_KEY === 'YOUR_AIRTABLE_PERSONAL_ACCESS_TOKEN_HERE' || BASE_ID === 'YOUR_BASE_ID_HERE') {
@@ -1007,6 +1080,13 @@ function restart(){
   document.getElementById('iq1').style.display='block';
   document.querySelectorAll('#q1_detail,#q3_detail,#q5_detail').forEach(el=>el.style.display='block');
   ['q2','q4','q6','q7'].forEach(q=>{const w=document.getElementById(q+'dk_wrap');if(w)w.classList.remove('disabled');});
+  document.querySelectorAll('.no-option input[type=checkbox]').forEach(cb => {cb.checked=false;});
+  document.getElementById('q1_days').disabled = false;
+  document.getElementById('q1_days').value = '';
+  document.getElementById('q3_days').disabled = false;
+  document.getElementById('q3_days').value = '';
+  document.getElementById('q5_days').disabled = false;
+  document.getElementById('q5_days').value = '';
   document.getElementById('surveyBody').style.display='block';
   document.getElementById('thankyouPanel').style.display='none';
   document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
