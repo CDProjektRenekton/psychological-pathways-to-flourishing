@@ -369,24 +369,7 @@ body{font-family:'Segoe UI',sans-serif;background:#f0f4f8;min-height:100vh;displ
         <div class="err" id="err_rloc">Please select an option and specify city if applicable.</div>
       </div>
 
-      <!-- Physical Activity Level -->
-      <div class="field">
-        <label>15. Physical Activity Level <span class="req">*</span></label>
-        <div class="radio-group">
-          <label class="radio-opt"><input type="radio" name="palevel" value="Sedentary"> Sedentary <span style="font-weight:400;color:#64748b">(little or no physical activity)</span></label>
-          <label class="radio-opt"><input type="radio" name="palevel" value="Moderately active"> Moderately active <span style="font-weight:400;color:#64748b">(exercise 1–3 times per week)</span></label>
-          <label class="radio-opt"><input type="radio" name="palevel" value="Highly active"> Highly active <span style="font-weight:400;color:#64748b">(exercise 4+ times per week)</span></label>
-        </div>
-        <div class="err" id="err_palevel">Please select an option.</div>
-      </div>
-
-      <div class="nav">
-        <button class="btn btn-secondary" onclick="navTo('sec-intro','sec-demo',0,'Step 1 of 6','Introduction &amp; Informed Consent')">← Back</button>
-        <button class="btn btn-primary" onclick="submitDemo()">Next: Physical Activity →</button>
-      </div>
-    </div>
-
-    <!-- ===== IPAQ ===== -->
+      <!-- ===== IPAQ ===== -->
     <div class="section" id="sec-ipaq">
       <div class="sec-title">Part 2 · International Physical Activity Questionnaire (IPAQ-SF)</div>
       <div class="intro-box">We are interested in finding out about the kinds of physical activities that people do as part of their everyday lives. The questions will ask you about the time you spent being physically active in the <strong>last 7 days</strong>. Please answer each question even if you do not consider yourself to be an active person. Please think about the activities you do at work, as part of your house and yard work, to get from place to place, and in your spare time for recreation, exercise or sport.</div>
@@ -395,12 +378,15 @@ body{font-family:'Segoe UI',sans-serif;background:#f0f4f8;min-height:100vh;displ
       <div class="ipaq-q" id="iq1" style="display:block">
         <div class="q-context">Think about all the <strong>vigorous activities</strong> that you did in the last 7 days. Vigorous physical activities refer to activities that take hard physical effort and make you breathe much harder than normal. Think only about those physical activities that you did for at least 10 minutes at a time.</div>
         <div class="q-text">1. During the last 7 days, on how many days did you do vigorous physical activities like heavy lifting, digging, aerobics, or fast bicycling?</div>
-        <div id="q1_detail" style="margin-top:4px">
-          <label style="font-size:0.83rem;color:#475569;display:block;margin-bottom:6px">Number of days:</label>
-          <div class="number-input"><input type="number" id="q1_days" min="0" max="7" placeholder="0" disabled><span>days per week</span></div>
-          <div class="err" id="err_q1days">Please enter the number of days (0-7).</div>
+        <div class="ipaq-days-row">
+          <input type="number" id="q1_days" min="1" max="7" placeholder="__" oninput="onDaysInput('q1')">
+          <span class="days-label">days per week</span>
         </div>
-        <label class="no-option" id="q1_no_wrap"><input type="checkbox" id="q1_no" onchange="toggleNoOption(1)"> <span>No vigorous physical activities &nbsp;<em style="font-style:italic">(Skip to Question 3)</em></span></label>
+        <label class="skip-opt" id="q1_skip_wrap">
+          <input type="radio" name="q1yn" value="no" onchange="onSkip('q1','iq3')">
+          <span>No vigorous physical activities &nbsp;<em style="font-style:italic">(Skip to Question 3)</em></span>
+        </label>
+        <div class="err" id="err_q1" style="margin-top:8px">Please enter the number of days or select "No vigorous physical activities."</div>
         <div class="nav"><button class="btn btn-secondary" onclick="ipaqBack()">← Back</button><button class="btn btn-primary" onclick="ipaqNext(1)">Next →</button></div>
       </div>
 
@@ -418,13 +404,17 @@ body{font-family:'Segoe UI',sans-serif;background:#f0f4f8;min-height:100vh;displ
 
       <!-- Q3 -->
       <div class="ipaq-q" id="iq3">
+        <div class="q-context">Think about all the <strong>moderate activities</strong> that you did in the last 7 days. Moderate activities refer to activities that take moderate physical effort and make you breathe somewhat harder than normal. Think only about those physical activities that you did for at least 10 minutes at a time.</div>
         <div class="q-text">3. During the last 7 days, on how many days did you do moderate physical activities like carrying light loads, bicycling at a regular pace, or doubles tennis? Do not include walking.</div>
-        <div id="q3_detail" style="margin-top:4px">
-          <label style="font-size:0.83rem;color:#475569;display:block;margin-bottom:6px">Number of days:</label>
-          <div class="number-input"><input type="number" id="q3_days" min="0" max="7" placeholder="0" disabled><span>days per week</span></div>
-          <div class="err" id="err_q3days">Please enter the number of days (0-7).</div>
+        <div class="ipaq-days-row">
+          <input type="number" id="q3_days" min="1" max="7" placeholder="__" oninput="onDaysInput('q3')">
+          <span class="days-label">days per week</span>
         </div>
-        <label class="no-option" id="q3_no_wrap"><input type="checkbox" id="q3_no" onchange="toggleNoOption(3)"> <span>No moderate physical activities &nbsp;<em style="font-style:italic">(Skip to Question 5)</em></span></label>
+        <label class="skip-opt" id="q3_skip_wrap">
+          <input type="radio" name="q3yn" value="no" onchange="onSkip('q3','iq5')">
+          <span>No moderate physical activities &nbsp;<em style="font-style:italic">(Skip to Question 5)</em></span>
+        </label>
+        <div class="err" id="err_q3" style="margin-top:8px">Please enter the number of days or select "No moderate physical activities."</div>
         <div class="nav"><button class="btn btn-secondary" onclick="ipaqBack()">← Back</button><button class="btn btn-primary" onclick="ipaqNext(3)">Next →</button></div>
       </div>
 
@@ -444,12 +434,15 @@ body{font-family:'Segoe UI',sans-serif;background:#f0f4f8;min-height:100vh;displ
       <div class="ipaq-q" id="iq5">
         <div class="q-context">Think about the time you spent <strong>walking</strong> in the last 7 days. This includes at work and at home, walking to travel from place to place, and any other walking that you have done solely for recreation, sport, exercise, or leisure.</div>
         <div class="q-text">5. During the last 7 days, on how many days did you walk for at least 10 minutes at a time?</div>
-        <div id="q5_detail" style="margin-top:4px">
-          <label style="font-size:0.83rem;color:#475569;display:block;margin-bottom:6px">Number of days:</label>
-          <div class="number-input"><input type="number" id="q5_days" min="0" max="7" placeholder="0" disabled><span>days per week</span></div>
-          <div class="err" id="err_q5days">Please enter the number of days (0-7).</div>
+        <div class="ipaq-days-row">
+          <input type="number" id="q5_days" min="1" max="7" placeholder="__" oninput="onDaysInput('q5')">
+          <span class="days-label">days per week</span>
         </div>
-        <label class="no-option" id="q5_no_wrap"><input type="checkbox" id="q5_no" onchange="toggleNoOption(5)"> <span>No walking &nbsp;<em style="font-style:italic">(Skip to Question 7)</em></span></label>
+        <label class="skip-opt" id="q5_skip_wrap">
+          <input type="radio" name="q5yn" value="no" onchange="onSkip('q5','iq7')">
+          <span>No walking &nbsp;<em style="font-style:italic">(Skip to Question 7)</em></span>
+        </label>
+        <div class="err" id="err_q5" style="margin-top:8px">Please enter the number of days or select "No walking."</div>
         <div class="nav"><button class="btn btn-secondary" onclick="ipaqBack()">← Back</button><button class="btn btn-primary" onclick="ipaqNext(5)">Next →</button></div>
       </div>
 
