@@ -389,16 +389,11 @@ body{font-family:'Segoe UI',sans-serif;background:#f0f4f8;min-height:100vh;displ
       <div class="ipaq-q" id="iq1" style="display:block">
         <div class="q-context">Think about all the <strong>vigorous activities</strong> that you did in the last 7 days. Vigorous physical activities refer to activities that take hard physical effort and make you breathe much harder than normal. Think only about those physical activities that you did for at least 10 minutes at a time.</div>
         <div class="q-text">1. During the last 7 days, on how many days did you do vigorous physical activities like heavy lifting, digging, aerobics, or fast bicycling?</div>
-        <div class="radio-group" style="margin-bottom:12px">
-          <label class="radio-opt"><input type="radio" name="q1yn" value="yes" onchange="onYN('q1','yes')"> Yes</label>
-          <label class="radio-opt"><input type="radio" name="q1yn" value="no" onchange="onYN('q1','no')"> No vigorous physical activities &nbsp;<em style="color:#92400e;font-size:0.82rem">(Skip to Question 3)</em></label>
-        </div>
-        <div id="q1_detail" style="display:none;margin-top:4px">
+        <div id="q1_detail" style="margin-top:4px">
           <label style="font-size:0.83rem;color:#475569;display:block;margin-bottom:6px">Number of days:</label>
-          <div class="number-input"><input type="number" id="q1_days" min="1" max="7" placeholder="0"><span>days per week</span></div>
-          <div class="err" id="err_q1days">Please enter the number of days (1-7).</div>
+          <div class="number-input"><input type="number" id="q1_days" min="0" max="7" placeholder="0"><span>days per week (0 if none)</span></div>
+          <div class="err" id="err_q1days">Please enter the number of days (0-7).</div>
         </div>
-        <div class="err" id="err_q1">Please select an option.</div>
         <div class="nav"><button class="btn btn-secondary" onclick="ipaqBack()">← Back</button><button class="btn btn-primary" onclick="ipaqNext(1)">Next →</button></div>
       </div>
 
@@ -417,16 +412,11 @@ body{font-family:'Segoe UI',sans-serif;background:#f0f4f8;min-height:100vh;displ
       <!-- Q3 -->
       <div class="ipaq-q" id="iq3">
         <div class="q-text">3. During the last 7 days, on how many days did you do moderate physical activities like carrying light loads, bicycling at a regular pace, or doubles tennis? Do not include walking.</div>
-        <div class="radio-group" style="margin-bottom:12px">
-          <label class="radio-opt"><input type="radio" name="q3yn" value="yes" onchange="onYN('q3','yes')"> Yes</label>
-          <label class="radio-opt"><input type="radio" name="q3yn" value="no" onchange="onYN('q3','no')"> No moderate physical activities &nbsp;<em style="color:#92400e;font-size:0.82rem">(Skip to Question 5)</em></label>
-        </div>
-        <div id="q3_detail" style="display:none;margin-top:4px">
+        <div id="q3_detail" style="margin-top:4px">
           <label style="font-size:0.83rem;color:#475569;display:block;margin-bottom:6px">Number of days:</label>
-          <div class="number-input"><input type="number" id="q3_days" min="1" max="7" placeholder="0"><span>days per week</span></div>
-          <div class="err" id="err_q3days">Please enter the number of days (1-7).</div>
+          <div class="number-input"><input type="number" id="q3_days" min="0" max="7" placeholder="0"><span>days per week (0 if none)</span></div>
+          <div class="err" id="err_q3days">Please enter the number of days (0-7).</div>
         </div>
-        <div class="err" id="err_q3">Please select an option.</div>
         <div class="nav"><button class="btn btn-secondary" onclick="ipaqBack()">← Back</button><button class="btn btn-primary" onclick="ipaqNext(3)">Next →</button></div>
       </div>
 
@@ -446,16 +436,11 @@ body{font-family:'Segoe UI',sans-serif;background:#f0f4f8;min-height:100vh;displ
       <div class="ipaq-q" id="iq5">
         <div class="q-context">Think about the time you spent <strong>walking</strong> in the last 7 days. This includes at work and at home, walking to travel from place to place, and any other walking that you have done solely for recreation, sport, exercise, or leisure.</div>
         <div class="q-text">5. During the last 7 days, on how many days did you walk for at least 10 minutes at a time?</div>
-        <div class="radio-group" style="margin-bottom:12px">
-          <label class="radio-opt"><input type="radio" name="q5yn" value="yes" onchange="onYN('q5','yes')"> Yes</label>
-          <label class="radio-opt"><input type="radio" name="q5yn" value="no" onchange="onYN('q5','no')"> No walking &nbsp;<em style="color:#92400e;font-size:0.82rem">(Skip to Question 7)</em></label>
-        </div>
-        <div id="q5_detail" style="display:none;margin-top:4px">
+        <div id="q5_detail" style="margin-top:4px">
           <label style="font-size:0.83rem;color:#475569;display:block;margin-bottom:6px">Number of days:</label>
-          <div class="number-input"><input type="number" id="q5_days" min="1" max="7" placeholder="0"><span>days per week</span></div>
-          <div class="err" id="err_q5days">Please enter the number of days (1-7).</div>
+          <div class="number-input"><input type="number" id="q5_days" min="0" max="7" placeholder="0"><span>days per week (0 if none)</span></div>
+          <div class="err" id="err_q5days">Please enter the number of days (0-7).</div>
         </div>
-        <div class="err" id="err_q5">Please select an option.</div>
         <div class="nav"><button class="btn btn-secondary" onclick="ipaqBack()">← Back</button><button class="btn btn-primary" onclick="ipaqNext(5)">Next →</button></div>
       </div>
 
@@ -588,22 +573,10 @@ body{font-family:'Segoe UI',sans-serif;background:#f0f4f8;min-height:100vh;displ
 // CONFIGURATION — Replace these with your Airtable credentials
 // ═══════════════════════════════════════════════════════════════════════════════
 const AIRTABLE_CONFIG = {
-  // Your Personal Access Token (starts with "pat...")
-  // Get it from: https://airtable.com/create/tokens
   API_KEY: 'patGENwLuAKtovqaI.13401f4b0161b141f8723f616f0ead192519287f178b17f6f23ceb5ac3137a0d',
-  
-  // Your Base ID (found in the API documentation for your base)
-  // Looks like: appXXXXXXXXXXXXXX
   BASE_ID: 'app4Hmc0skWBEvxCD',
-  
-  // Your Table Name (case-sensitive)
   TABLE_NAME: 'Responses'
 };
-
-// ═══════════════════════════════════════════════════════════════════════════════
-// WARNING: For production use, do NOT expose your API key in frontend code.
-// This setup is for development/testing. For production, use a backend proxy.
-// ═══════════════════════════════════════════════════════════════════════════════
 
 // ── DATA ─────────────────────────────────────────────────────────────────────
 const fsItems = [
@@ -704,13 +677,6 @@ function handleLocChange(prefix) {
     wrap.classList.toggle('selected', isSelected);
     city.style.display = isSelected ? 'block' : 'none';
   });
-}
-
-// ── IPAQ YN TOGGLE ────────────────────────────────────────────────────────────
-function onYN(q, val) {
-  document.querySelectorAll(`input[name="${q}yn"]`).forEach(r => r.closest('.radio-opt').classList.toggle('selected', r.value===val));
-  const det = document.getElementById(q+'_detail');
-  if (det) det.style.display = val==='yes' ? 'block' : 'none';
 }
 
 // ── DK / TIME ─────────────────────────────────────────────────────────────────
@@ -831,35 +797,27 @@ function showIpaqQ(id){document.querySelectorAll('.ipaq-q').forEach(el=>el.style
 
 function ipaqNext(qNum){
   if(qNum===1){
-    const yn=getRadio('q1yn');
-    if(!yn){showErr('err_q1',true);return;}showErr('err_q1',false);
-    if(yn==='yes'){
-      const d=document.getElementById('q1_days').value;
-      if(!d || d<1 || d>7){showErr('err_q1days',true);return;}showErr('err_q1days',false);
-    }
-    ipaqStack.push('iq1');showIpaqQ(yn==='no'?'iq3':'iq2');
+    const d=document.getElementById('q1_days').value;
+    const daysVal = parseInt(d);
+    if(isNaN(daysVal) || daysVal<0 || daysVal>7){showErr('err_q1days',true);return;}showErr('err_q1days',false);
+    ipaqStack.push('iq1');
+    showIpaqQ('iq2');
   } else if(qNum===2){
     if(!validateTime('q2'))return;
     ipaqStack.push('iq2');showIpaqQ('iq3');
   } else if(qNum===3){
-    const yn=getRadio('q3yn');
-    if(!yn){showErr('err_q3',true);return;}showErr('err_q3',false);
-    if(yn==='yes'){
-      const d=document.getElementById('q3_days').value;
-      if(!d || d<1 || d>7){showErr('err_q3days',true);return;}showErr('err_q3days',false);
-    }
-    ipaqStack.push('iq3');showIpaqQ(yn==='no'?'iq5':'iq4');
+    const d=document.getElementById('q3_days').value;
+    const daysVal = parseInt(d);
+    if(isNaN(daysVal) || daysVal<0 || daysVal>7){showErr('err_q3days',true);return;}showErr('err_q3days',false);
+    ipaqStack.push('iq3');showIpaqQ('iq4');
   } else if(qNum===4){
     if(!validateTime('q4'))return;
     ipaqStack.push('iq4');showIpaqQ('iq5');
   } else if(qNum===5){
-    const yn=getRadio('q5yn');
-    if(!yn){showErr('err_q5',true);return;}showErr('err_q5',false);
-    if(yn==='yes'){
-      const d=document.getElementById('q5_days').value;
-      if(!d || d<1 || d>7){showErr('err_q5days',true);return;}showErr('err_q5days',false);
-    }
-    ipaqStack.push('iq5');showIpaqQ(yn==='no'?'iq7':'iq6');
+    const d=document.getElementById('q5_days').value;
+    const daysVal = parseInt(d);
+    if(isNaN(daysVal) || daysVal<0 || daysVal>7){showErr('err_q5days',true);return;}showErr('err_q5days',false);
+    ipaqStack.push('iq5');showIpaqQ('iq6');
   } else if(qNum===6){
     if(!validateTime('q6'))return;
     ipaqStack.push('iq6');showIpaqQ('iq7');
@@ -906,19 +864,15 @@ function getLocCity(prefix) {
   return cityInput ? cityInput.value.trim() : '';
 }
 
-// ── COLLECT ALL SURVEY DATA ───────────────────────────────────────────────────
+// ── COLLECT ALL SURVEY DATA (same structure, now handling 0 days properly) ──
 function collectSurveyData() {
-  // Helper to safely get number value
   const getNum = (id) => { const el = document.getElementById(id); return el && el.value ? parseInt(el.value) : 0; };
   const getDK = (id) => { const el = document.getElementById(id); return el ? el.checked : false; };
   const getOther = (id) => { const el = document.getElementById(id); return el ? el.value.trim() : ''; };
   
   const data = {
-    // Consent
     Consent_Name: document.getElementById('consent_name').value.trim(),
     Consent_Date: document.getElementById('consent_date').value,
-    
-    // Demographics
     Full_Name: document.getElementById('d_name').value.trim(),
     Age: parseInt(document.getElementById('d_age').value) || 0,
     Sex: getRadio('sex') || '',
@@ -944,25 +898,21 @@ function collectSurveyData() {
     Residence_Location: getRadio('rloc') || '',
     Residence_Location_City: getLocCity('rloc'),
     Physical_Activity_Level: getRadio('palevel') || '',
-    
-    // IPAQ
-    IPAQ_Q1_Vigorous_Days: getRadio('q1yn') === 'yes' ? getNum('q1_days') : 0,
-    IPAQ_Q2_Vigorous_Hours: getRadio('q1yn') === 'yes' ? getNum('q2h') : 0,
-    IPAQ_Q2_Vigorous_Minutes: getRadio('q1yn') === 'yes' ? getNum('q2m') : 0,
-    IPAQ_Q2_DK: getRadio('q1yn') === 'yes' ? getDK('q2_dk') : false,
-    IPAQ_Q3_Moderate_Days: getRadio('q3yn') === 'yes' ? getNum('q3_days') : 0,
-    IPAQ_Q4_Moderate_Hours: getRadio('q3yn') === 'yes' ? getNum('q4h') : 0,
-    IPAQ_Q4_Moderate_Minutes: getRadio('q3yn') === 'yes' ? getNum('q4m') : 0,
-    IPAQ_Q4_DK: getRadio('q3yn') === 'yes' ? getDK('q4_dk') : false,
-    IPAQ_Q5_Walking_Days: getRadio('q5yn') === 'yes' ? getNum('q5_days') : 0,
-    IPAQ_Q6_Walking_Hours: getRadio('q5yn') === 'yes' ? getNum('q6h') : 0,
-    IPAQ_Q6_Walking_Minutes: getRadio('q5yn') === 'yes' ? getNum('q6m') : 0,
-    IPAQ_Q6_DK: getRadio('q5yn') === 'yes' ? getDK('q6_dk') : false,
+    IPAQ_Q1_Vigorous_Days: getNum('q1_days'),
+    IPAQ_Q2_Vigorous_Hours: getNum('q2h'),
+    IPAQ_Q2_Vigorous_Minutes: getNum('q2m'),
+    IPAQ_Q2_DK: getDK('q2_dk'),
+    IPAQ_Q3_Moderate_Days: getNum('q3_days'),
+    IPAQ_Q4_Moderate_Hours: getNum('q4h'),
+    IPAQ_Q4_Moderate_Minutes: getNum('q4m'),
+    IPAQ_Q4_DK: getDK('q4_dk'),
+    IPAQ_Q5_Walking_Days: getNum('q5_days'),
+    IPAQ_Q6_Walking_Hours: getNum('q6h'),
+    IPAQ_Q6_Walking_Minutes: getNum('q6m'),
+    IPAQ_Q6_DK: getDK('q6_dk'),
     IPAQ_Q7_Sitting_Hours: getNum('q7h'),
     IPAQ_Q7_Sitting_Minutes: getNum('q7m'),
     IPAQ_Q7_DK: getDK('q7_dk'),
-    
-    // Flourishing Scale
     FS_Q1: parseInt(getRadio('fs_0')) || 0,
     FS_Q2: parseInt(getRadio('fs_1')) || 0,
     FS_Q3: parseInt(getRadio('fs_2')) || 0,
@@ -971,8 +921,6 @@ function collectSurveyData() {
     FS_Q6: parseInt(getRadio('fs_5')) || 0,
     FS_Q7: parseInt(getRadio('fs_6')) || 0,
     FS_Q8: parseInt(getRadio('fs_7')) || 0,
-    
-    // MBI
     MBI_Q1: parseInt(getRadio('mbiA_0')) || 0,
     MBI_Q2: parseInt(getRadio('mbiA_1')) || 0,
     MBI_Q3: parseInt(getRadio('mbiA_2')) || 0,
@@ -980,8 +928,6 @@ function collectSurveyData() {
     MBI_Q5: parseInt(getRadio('mbiA_4')) || 0,
     MBI_Q6: parseInt(getRadio('mbiA_5')) || 0,
     MBI_Q7: parseInt(getRadio('mbiA_6')) || 0,
-    
-    // MSPSS
     MSPSS_Q1: parseInt(getRadio('mspss_0')) || 0,
     MSPSS_Q2: parseInt(getRadio('mspss_1')) || 0,
     MSPSS_Q3: parseInt(getRadio('mspss_2')) || 0,
@@ -995,59 +941,33 @@ function collectSurveyData() {
     MSPSS_Q11: parseInt(getRadio('mspss_10')) || 0,
     MSPSS_Q12: parseInt(getRadio('mspss_11')) || 0
   };
-  
   return data;
 }
 
-// ── SEND TO AIRTABLE ──────────────────────────────────────────────────────────
+// ── SEND TO AIRTABLE (unchanged) ──────────────────────────────────────────────
 async function sendToAirtable(data) {
   const { API_KEY, BASE_ID, TABLE_NAME } = AIRTABLE_CONFIG;
-  
-  // Validate config
   if (API_KEY === 'YOUR_AIRTABLE_PERSONAL_ACCESS_TOKEN_HERE' || BASE_ID === 'YOUR_BASE_ID_HERE') {
     console.warn('⚠️ Airtable not configured. Data logged to console instead.');
     console.log('Survey Data:', JSON.stringify(data, null, 2));
     return { success: false, error: 'Airtable not configured. Check console for data.' };
   }
-
   const url = `https://api.airtable.com/v0/${BASE_ID}/${encodeURIComponent(TABLE_NAME)}`;
-  
-  // Convert data to Airtable format
   const fields = {};
   for (const [key, value] of Object.entries(data)) {
-    // Airtable field names cannot contain spaces or special chars
-    // Ensure values are properly typed
-    if (typeof value === 'boolean') {
-      fields[key] = value;
-    } else if (typeof value === 'number') {
-      fields[key] = value;
-    } else {
-      fields[key] = value || ''; // Empty strings for null/undefined
-    }
+    if (typeof value === 'boolean') fields[key] = value;
+    else if (typeof value === 'number') fields[key] = value;
+    else fields[key] = value || '';
   }
-
   try {
     const response = await fetch(url, {
       method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${API_KEY}`,
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        records: [
-          { fields: fields }
-        ]
-      })
+      headers: { 'Authorization': `Bearer ${API_KEY}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ records: [{ fields: fields }] })
     });
-
-    if (!response.ok) {
-      const errorData = await response.json();
-      throw new Error(errorData.error?.message || `HTTP error ${response.status}`);
-    }
-
-    const result = await response.json();
-    console.log('✅ Successfully saved to Airtable:', result);
-    return { success: true, data: result };
+    if (!response.ok) throw new Error((await response.json()).error?.message || `HTTP error ${response.status}`);
+    console.log('✅ Successfully saved to Airtable:', await response.json());
+    return { success: true };
   } catch (error) {
     console.error('❌ Error sending to Airtable:', error.message);
     return { success: false, error: error.message };
@@ -1060,30 +980,17 @@ async function submitSurvey(){
   for(let i=0;i<mspssItems.length;i++){if(!getRadio('mspss_'+i)){ok=false;break;}}
   showErr('err_mspss',!ok);
   if(!ok)return;
-  
-  // Collect all data
   const surveyData = collectSurveyData();
-  
-  // Show loading overlay
   const loadingOverlay = document.getElementById('loadingOverlay');
   loadingOverlay.classList.add('active');
-  
-  // Send to Airtable
   const result = await sendToAirtable(surveyData);
-  
-  // Hide loading overlay
   loadingOverlay.classList.remove('active');
-  
-  // Show thank you panel regardless of Airtable result
-  // (data is logged to console even if Airtable fails)
   document.getElementById('surveyBody').style.display='none';
   document.getElementById('thankyouPanel').style.display='block';
   document.getElementById('hSub').textContent='Thank You';
   document.getElementById('progBar').style.width='100%';
   document.getElementById('progLbl').textContent='Completed';
   window.scrollTo(0,0);
-  
-  // If Airtable failed, show an alert but still show thank you
   if (!result.success && AIRTABLE_CONFIG.API_KEY !== 'YOUR_AIRTABLE_PERSONAL_ACCESS_TOKEN_HERE') {
     alert('Note: There was an issue saving to Airtable. Your responses have been logged to the console. Error: ' + result.error);
   }
@@ -1098,7 +1005,7 @@ function restart(){
   document.querySelectorAll('.other-wrap,.loc-city').forEach(el=>el.style.display='none');
   document.querySelectorAll('.ipaq-q').forEach(el=>el.style.display='none');
   document.getElementById('iq1').style.display='block';
-  document.querySelectorAll('#q1_detail,#q3_detail,#q5_detail').forEach(el=>el.style.display='none');
+  document.querySelectorAll('#q1_detail,#q3_detail,#q5_detail').forEach(el=>el.style.display='block');
   ['q2','q4','q6','q7'].forEach(q=>{const w=document.getElementById(q+'dk_wrap');if(w)w.classList.remove('disabled');});
   document.getElementById('surveyBody').style.display='block';
   document.getElementById('thankyouPanel').style.display='none';
