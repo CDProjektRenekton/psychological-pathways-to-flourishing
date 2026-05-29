@@ -400,7 +400,7 @@ body{font-family:'Segoe UI',sans-serif;background:#f0f4f8;min-height:100vh;displ
           <div class="number-input"><input type="number" id="q1_days" min="0" max="7" placeholder="0" disabled><span>days per week</span></div>
           <div class="err" id="err_q1days">Please enter the number of days (0-7).</div>
         </div>
-        <label class="no-option" id="q1_no_wrap"><input type="checkbox" id="q1_no" onchange="toggleNoOption(1)"> <span>No, I did not do any vigorous physical activities in the last 7 days</span></label>
+        <label class="no-option" id="q1_no_wrap"><input type="checkbox" id="q1_no" onchange="toggleNoOption(1)"> <span>No vigorous physical activities &nbsp;<em style="font-style:italic">(Skip to Question 3)</em></span></label>
         <div class="nav"><button class="btn btn-secondary" onclick="ipaqBack()">← Back</button><button class="btn btn-primary" onclick="ipaqNext(1)">Next →</button></div>
       </div>
 
@@ -424,7 +424,7 @@ body{font-family:'Segoe UI',sans-serif;background:#f0f4f8;min-height:100vh;displ
           <div class="number-input"><input type="number" id="q3_days" min="0" max="7" placeholder="0" disabled><span>days per week</span></div>
           <div class="err" id="err_q3days">Please enter the number of days (0-7).</div>
         </div>
-        <label class="no-option" id="q3_no_wrap"><input type="checkbox" id="q3_no" onchange="toggleNoOption(3)"> <span>No, I did not do any moderate physical activities in the last 7 days</span></label>
+        <label class="no-option" id="q3_no_wrap"><input type="checkbox" id="q3_no" onchange="toggleNoOption(3)"> <span>No moderate physical activities &nbsp;<em style="font-style:italic">(Skip to Question 5)</em></span></label>
         <div class="nav"><button class="btn btn-secondary" onclick="ipaqBack()">← Back</button><button class="btn btn-primary" onclick="ipaqNext(3)">Next →</button></div>
       </div>
 
@@ -449,7 +449,7 @@ body{font-family:'Segoe UI',sans-serif;background:#f0f4f8;min-height:100vh;displ
           <div class="number-input"><input type="number" id="q5_days" min="0" max="7" placeholder="0" disabled><span>days per week</span></div>
           <div class="err" id="err_q5days">Please enter the number of days (0-7).</div>
         </div>
-        <label class="no-option" id="q5_no_wrap"><input type="checkbox" id="q5_no" onchange="toggleNoOption(5)"> <span>No, I did not walk for at least 10 minutes at a time in the last 7 days</span></label>
+        <label class="no-option" id="q5_no_wrap"><input type="checkbox" id="q5_no" onchange="toggleNoOption(5)"> <span>No walking &nbsp;<em style="font-style:italic">(Skip to Question 7)</em></span></label>
         <div class="nav"><button class="btn btn-secondary" onclick="ipaqBack()">← Back</button><button class="btn btn-primary" onclick="ipaqNext(5)">Next →</button></div>
       </div>
 
